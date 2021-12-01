@@ -1,0 +1,39 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  background-color: rgb(0 0 0 / 3%);
+}
+
+.main {
+  height: calc(100vh - 120px);
+  display: grid;
+  grid-template-columns: 350px 1fr 350px;
+  gap: 16px;
+}
+
+.drawing-area-container {
+  overflow: auto;
+}
+
+.drawing-area {
+  margin:70px auto 0 auto;
+}
+
+.color-picker .color-picker__btn::after {
+  display: none;
+}
+
+.color-picker .color-picker__indicator {
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: chocolate;
+  margin:0 0 0 9px;
+}
+
+.picker_done {
+  display: none;
+}
