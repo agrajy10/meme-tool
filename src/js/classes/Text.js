@@ -1,3 +1,5 @@
+import mouseDownHandler from "../drag";
+
 class Text {
     constructor() {
         this.content = 'Line of text',
@@ -13,6 +15,7 @@ class Text {
             left:0
         },
         this.el = this._generateMarkup();
+        this.el.addEventListener('mousedown', mouseDownHandler(this));
     }
 
     _generateMarkup() {
@@ -30,6 +33,16 @@ class Text {
         div.style.left = `${this.styles.left}px`;
         div.style.top = `${this.styles.top}px`;
         return div;
+    }
+
+    set topPos(pos) {
+        this.styles.top = pos;
+        this.el.style.top = `${this.styles.top}px`;
+    }
+
+    set leftPos(pos) {
+        this.styles.left = pos;
+        this.el.style.left = `${this.styles.left}px`;
     }
 }
 
