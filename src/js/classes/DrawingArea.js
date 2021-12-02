@@ -14,9 +14,9 @@ class DrawingArea {
     }
 
     _renderDrawingArea() {
-        this.drawingAreaEl = this._generateMarkup();
+        this.el = this._generateMarkup();
         const drawingAreaContainer = document.querySelector('.drawing-area-container');
-        drawingAreaContainer.appendChild(this.drawingAreaEl);
+        drawingAreaContainer.appendChild(this.el);
     }
 
     _generateMarkup() {
@@ -31,6 +31,10 @@ class DrawingArea {
         div.style.borderStyle = this.styles.borderStyle;
         div.style.borderColor = this.styles.borderColor;
         return div;
+    }
+
+    appendItem(itemObj) {
+        return this.el.appendChild(itemObj.el);
     }
 
     get width() {
@@ -59,33 +63,34 @@ class DrawingArea {
 
     set width(newWidth) {
         this.size.width = newWidth;
-        this.drawingAreaEl.style.width = `${this.size.width}px`;
+        this.el.style.width = `${this.size.width}px`;
     }
 
     set height(newHeight) {
         this.size.height = newHeight;
-        this.drawingAreaEl.style.height = `${this.size.height}px`;
+        this.el.style.height = `${this.size.height}px`;
     }
 
     set backgroundColor(color) {
         this.styles.backgroundColor = color;
-        this.drawingAreaEl.style.backgroundColor = this.styles.backgroundColor;
+        this.el.style.backgroundColor = this.styles.backgroundColor;
     }
 
     set borderColor(color) {
         this.styles.borderColor = color;
-        this.drawingAreaEl.style.borderColor = this.styles.borderColor;
+        this.el.style.borderColor = this.styles.borderColor;
     }
 
     set borderWidth(width) {
         this.styles.borderWidth = width;
-        this.drawingAreaEl.style.borderWidth = `${this.styles.borderWidth}px`;
+        this.el.style.borderWidth = `${this.styles.borderWidth}px`;
     }
 
     set borderStyle(style) {
         this.styles.borderStyle = style;
-        this.drawingAreaEl.style.borderStyle = this.styles.borderStyle;
+        this.el.style.borderStyle = this.styles.borderStyle;
     }
+
 }
 
 const drawingAreaObj = new DrawingArea();
