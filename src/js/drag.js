@@ -11,7 +11,6 @@ function mouseUpHandler() {
     we are saving mouseMoveHandler inner function reference
     so that we will be able to clear it in removeEventListener
 */
-
 function mouseMoveHandler(itemObj) {
   mouseMoveHandlerRef = function (e) {
     const dx = e.clientX - mouseX;

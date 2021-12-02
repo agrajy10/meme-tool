@@ -37,3 +37,7 @@ body {
 .picker_done {
   display: none;
 }
+
+.item-selected {
+  outline: 2px dashed cornflowerblue;
+}

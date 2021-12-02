@@ -25,10 +25,18 @@
 
         <main class="main">
 
-            <div class="card py-2">
+            <div class="card py-2 settings-panel">
 
                 <div class="card-body">
                     <h2 class="fs-5">Settings panel</h2>
+                    <hr>
+                    <div class="text-item-content">
+                        <label for="textItemContent" class="form-label mb-2">Content</label>
+                        <textarea class="form-control text-item-content__input mb-2" id="textItemContent"></textarea>
+                        <!-- <div class="text-end">
+                            <button type="button" class="btn btn-success text-item-content__save-btn" disabled><i class="fas fa-check" aria-hidden="true"></i> Save</button>
+                        </div> -->
+                    </div><!--text-item-settings-->
                 </div>
 
             </div>
@@ -38,7 +46,7 @@
             </div>
             <!--drawing-area-->
 
-            <div class="card py-2">
+            <div class="card py-2 settings-panel">
 
                 <div class="card-body">
                     <h2 class="fs-5">Drawing area settings</h2>
