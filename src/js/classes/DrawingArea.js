@@ -37,6 +37,10 @@ class DrawingArea {
         return this.el.appendChild(itemObj.el);
     }
 
+    removeItem(itemObj) {
+        this.el.removeChild(itemObj.el);
+    }
+
     get width() {
         return this.size.width
     }
