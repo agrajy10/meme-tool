@@ -50,6 +50,10 @@ class Text {
   get textColor() {
     return this.styles.color
   }
+
+  get fontSize() {
+    return this.styles.fontSize
+  }
   
   set topPos(pos) {
     this.styles.top = pos;
@@ -69,6 +73,11 @@ class Text {
   set textColor(color) {
     this.styles.color = color;
     this.el.style.color = this.styles.color;
+  }
+
+  set fontSize(newFontSize) {
+    this.styles.fontSize = newFontSize;
+    this.el.style.fontSize = `${this.styles.fontSize}px`;
   }
 
 }

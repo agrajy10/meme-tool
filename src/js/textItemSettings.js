@@ -7,6 +7,8 @@ const textContentDeleteBtn = document.querySelector(".text-item-content__delete-
 const textContentColorPickerDropdown = document.querySelector(".text-item-content-color-dropdown");
 const textContentColorPickerBtn = textContentColorPickerDropdown.querySelector(".btn");
 const textContentColorPickerEl = document.querySelector(".color-picker__text-item-content");
+const textContentFsLbl = document.querySelector('.text-content-fs__label span');
+const textContentFsInput = document.querySelector('.text-content-fs__input');
 
 const textContentColorPicker = new Picker({
   parent: textContentColorPickerEl,
@@ -27,6 +29,9 @@ function selectTextItem(itemObj) {
   textContentColorPickerBtn.disabled = false;
   textContentColorPickerBtn.querySelector(".color-picker__indicator").style.backgroundColor = appState.currentSelectedItem.textColor;
   textContentColorPicker.setColor(appState.currentSelectedItem.textColor);
+  textContentFsInput.disabled = false;
+  textContentFsInput.value = appState.currentSelectedItem.fontSize;
+  textContentFsLbl.textContent = `(${appState.currentSelectedItem.fontSize}px)`;
 }
 
 function updateTextItemContent(e) {
@@ -50,7 +55,13 @@ function deleteSelectedTextItem() {
   textContentColorPickerBtn.disabled = true;
 }
 
+function changeTextItemFontSize(e) {
+  appState.currentSelectedItem.fontSize = e.target.value;
+  textContentFsLbl.textContent = `(${appState.currentSelectedItem.fontSize}px)`;
+}
+
 textContentInput.addEventListener("change", updateTextItemContent);
 textContentDeleteBtn.addEventListener("click", deleteSelectedTextItem);
+textContentFsInput.addEventListener('input', changeTextItemFontSize);
 
 export { selectTextItem };
