@@ -1,6 +1,6 @@
 const appState = {
-    items: [],
-    currentSelectedItem : null
-}
+  items: [],
+  currentSelectedItem: null,
+};
 
-export { appState };
+export default appState;

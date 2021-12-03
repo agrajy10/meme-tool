@@ -1,15 +1,32 @@
-import { appState } from "./appState";
+import Picker from "vanilla-picker";
+import appState from "./appState";
 import drawingAreaObj from "./classes/DrawingArea";
+
 const textContentInput = document.querySelector(".text-item-content__input");
 const textContentDeleteBtn = document.querySelector(".text-item-content__delete-btn");
+const textContentColorPickerDropdown = document.querySelector(".text-item-content-color-dropdown");
+const textContentColorPickerBtn = textContentColorPickerDropdown.querySelector(".btn");
+const textContentColorPickerEl = document.querySelector(".color-picker__text-item-content");
+
+const textContentColorPicker = new Picker({
+  parent: textContentColorPickerEl,
+  popup: false,
+  onChange: function (color) {
+    if (appState.currentSelectedItem) {
+      appState.currentSelectedItem.textColor = color.hex;
+    }
+  },
+});
 
 function selectTextItem(itemObj) {
-  appState.currentSelectedItem &&
-  appState.currentSelectedItem.el.classList.remove("item-selected");
+  appState.currentSelectedItem && appState.currentSelectedItem.el.classList.remove("item-selected");
   appState.currentSelectedItem = itemObj;
   appState.currentSelectedItem.el.classList.add("item-selected");
   textContentInput.value = appState.currentSelectedItem.itemContent;
   textContentDeleteBtn.disabled = false;
+  textContentColorPickerBtn.disabled = false;
+  textContentColorPickerBtn.querySelector(".color-picker__indicator").style.backgroundColor = appState.currentSelectedItem.textColor;
+  textContentColorPicker.setColor(appState.currentSelectedItem.textColor);
 }
 
 function updateTextItemContent(e) {
@@ -23,15 +40,17 @@ function updateTextItemContent(e) {
 }
 
 function deleteSelectedTextItem() {
-  appState.items = appState.items.filter(item => item !== appState.currentSelectedItem);
+  appState.items = appState.items.filter(
+    (item) => item !== appState.currentSelectedItem
+  );
   drawingAreaObj.removeItem(appState.currentSelectedItem);
   appState.currentSelectedItem = null;
-  textContentInput.value = '';
+  textContentInput.value = "";
   textContentDeleteBtn.disabled = true;
+  textContentColorPickerBtn.disabled = true;
 }
 
 textContentInput.addEventListener("change", updateTextItemContent);
-textContentDeleteBtn.addEventListener('click', deleteSelectedTextItem);
-
+textContentDeleteBtn.addEventListener("click", deleteSelectedTextItem);
 
 export { selectTextItem };

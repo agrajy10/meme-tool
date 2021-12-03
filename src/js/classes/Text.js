@@ -14,6 +14,7 @@ class Text {
         userSelect: "none",
         top: 0,
         left: 0,
+        color: '#000000'
       },
     this.el = this._generateMarkup();
     this.el.addEventListener("mousedown", mouseDownHandler(this));
@@ -38,11 +39,16 @@ class Text {
     div.style.position = "absolute";
     div.style.left = `${this.styles.left}px`;
     div.style.top = `${this.styles.top}px`;
+    div.style.color = this.styles.color;
     return div;
   }
 
   get itemContent() {
     return this.content
+  }
+
+  get textColor() {
+    return this.styles.color
   }
   
   set topPos(pos) {
@@ -58,6 +64,11 @@ class Text {
   set itemContent(newContent) {
     this.content = newContent;
     this.el.textContent = this.content;
+  }
+
+  set textColor(color) {
+    this.styles.color = color;
+    this.el.style.color = this.styles.color;
   }
 
 }

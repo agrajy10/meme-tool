@@ -33,11 +33,17 @@
                     <div class="text-item-content">
                         <label for="textItemContent" class="form-label mb-2">Content</label>
                         <textarea class="form-control text-item-content__input mb-2" id="textItemContent"></textarea>
-                        <!-- <div class="text-end">
-                            <button type="button" class="btn btn-success text-item-content__save-btn" disabled><i class="fas fa-check" aria-hidden="true"></i> Save</button>
-                        </div> -->
                     </div><!--text-item-settings-->
-                    <button type="button" class="btn btn-danger text-item-content__delete-btn" disabled><i class="fas fa-trash" aria-hidden="true"></i> Delete</button>
+                    <button type="button" class="btn btn-danger text-item-content__delete-btn mb-3" disabled><i class="fas fa-trash" aria-hidden="true"></i> Delete</button>
+                    <div class="dropdown color-picker mb-3 text-item-content-color-dropdown">
+                        <button class="btn btn-dark dropdown-toggle color-picker__btn" type="button"
+                        data-bs-auto-close="outside" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" disabled>
+                            Color <span class="color-picker__indicator"></span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <div class="color-picker__text-item-content"></div>
+                        </div>
+                    </div><!--color-picker-->
                 </div>
 
             </div>
