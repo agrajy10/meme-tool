@@ -54,6 +54,10 @@ class Text {
   get fontSize() {
     return this.styles.fontSize
   }
+
+  get textTransform() {
+    return this.styles.textTransform;
+  }
   
   set topPos(pos) {
     this.styles.top = pos;
@@ -80,6 +84,10 @@ class Text {
     this.el.style.fontSize = `${this.styles.fontSize}px`;
   }
 
+  set textTransform(value) {
+    this.styles.textTransform = value;
+    this.el.style.textTransform = this.styles.textTransform;
+  }
 }
 
 export default Text;

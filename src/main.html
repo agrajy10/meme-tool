@@ -15,8 +15,9 @@
         <header class="card my-3 toolbar">
 
             <div class="card-body d-flex align-items-center justify-content-center">
-                <button type="button" id="add-text-btn" class="btn btn-success mx-1 toolbar__add-text" data-bs-toggle="tooltip"
-                    data-bs-placement="bottom" title="Add text"><i class="fas fa-font" aria-hidden="true"></i></button>
+                <button type="button" id="add-text-btn" class="btn btn-success mx-1 toolbar__add-text"
+                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add text"><i class="fas fa-font"
+                        aria-hidden="true"></i></button>
                 <button type="button" class="btn btn-success mx-1" data-bs-toggle="tooltip" data-bs-placement="bottom"
                     title="Select template"><i class="fas fa-image" aria-hidden="true"></i></button>
             </div>
@@ -32,24 +33,47 @@
                     <hr>
                     <div class="text-item-content">
                         <label for="textItemContent" class="form-label mb-2">Content</label>
-                        <textarea class="form-control text-item-content__input mb-2" id="textItemContent"></textarea>
-                    </div><!--text-item-settings-->
-                    <button type="button" class="btn btn-danger text-item-content__delete-btn mb-3" disabled><i class="fas fa-trash" aria-hidden="true"></i> Delete</button>
+                        <textarea disabled class="form-control text-item-content__input mb-2" id="textItemContent"></textarea>
+                    </div>
+                    <!--text-item-settings-->
+                    <button type="button" class="btn btn-danger text-item-content__delete-btn mb-3" disabled><i
+                            class="fas fa-trash" aria-hidden="true"></i> Delete</button>
                     <div class="dropdown color-picker mb-3 text-item-content-color-dropdown">
                         <button class="btn btn-dark dropdown-toggle color-picker__btn" type="button"
-                        data-bs-auto-close="outside" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" disabled>
+                            data-bs-auto-close="outside" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                            aria-expanded="false" disabled>
                             Color <span class="color-picker__indicator"></span>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <div class="color-picker__text-item-content"></div>
                         </div>
-                    </div><!--color-picker-->
+                    </div>
+                    <!--color-picker-->
                     <div class="text-content-fs mb-3">
                         <label for="textContentFs" class="form-label text-content-fs__label">Font size
                             <span></span></label>
-                        <input disabled type="range" min="10" max="60" step="1" class="form-range text-content-fs__input"
-                            id="textContentFs">
-                    </div><!--drawing-area-br-width-->
+                        <input disabled type="range" min="10" max="60" step="1"
+                            class="form-range text-content-fs__input" id="textContentFs">
+                    </div>
+                    <!--drawing-area-br-width-->
+                    
+                    <div class="mb-3 text-content-transform">
+                        <h3 class="h6">Text transform</h3>
+                        <div role="group" aria-label="Text transform options">
+                            <input disabled type="radio" value="none" class="btn-check text-content-transform__option" name="textContentTransform" id="transformNone" autocomplete="off" checked>
+                            <label class="btn btn-outline-primary btn-sm mb-1" for="transformNone">None</label>
+
+                            <input disabled type="radio" value="uppercase" class="btn-check text-content-transform__option" name="textContentTransform" id="transformUpperCase" autocomplete="off">
+                            <label class="btn btn-outline-primary btn-sm mb-1" for="transformUpperCase">Uppercase</label>
+
+                            <input disabled type="radio" value="lowercase" class="btn-check text-content-transform__option" name="textContentTransform" id="transformLowerCase" autocomplete="off">
+                            <label class="btn btn-outline-primary btn-sm mb-1" for="transformLowerCase">Lowercase</label>
+
+                            <input disabled type="radio" value="capitalize" class="btn-check text-content-transform__option" name="textContentTransform" id="transformCapitalize" autocomplete="off">
+                            <label class="btn btn-outline-primary btn-sm mb-1" for="transformCapitalize">Capital Case</label>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -67,42 +91,52 @@
                     <div class="row drawing-area-size">
                         <div class="col-6 mb-3">
                             <div class="input-group">
-                                <input type="number" class="form-control drawing-area-size__width-input" placeholder="Width" aria-label="Drawing area width in pixels" aria-describedby="basic-addon2">
+                                <input type="number" class="form-control drawing-area-size__width-input"
+                                    placeholder="Width" aria-label="Drawing area width in pixels"
+                                    aria-describedby="basic-addon2">
                                 <span class="input-group-text" id="basic-addon2">px</span>
                             </div>
-                        </div><!--col-6-->
+                        </div>
+                        <!--col-6-->
                         <div class="col-6 mb-3">
                             <div class="input-group">
-                                <input type="number" class="form-control drawing-area-size__height-input" placeholder="Height" aria-label="Drawing area height in pixels" aria-describedby="basic-addon3">
+                                <input type="number" class="form-control drawing-area-size__height-input"
+                                    placeholder="Height" aria-label="Drawing area height in pixels"
+                                    aria-describedby="basic-addon3">
                                 <span class="input-group-text" id="basic-addon3">px</span>
                             </div>
-                        </div><!--col-6-->
-                    </div><!--row-->
+                        </div>
+                        <!--col-6-->
+                    </div>
+                    <!--row-->
                     <div class="dropdown color-picker mb-3 drawing-area-bg-color-dropdown">
                         <button class="btn btn-dark dropdown-toggle color-picker__btn" type="button"
-                        data-bs-auto-close="outside"
-                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            data-bs-auto-close="outside" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Background color <span class="color-picker__indicator"></span>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <div class="color-picker__drawing-area-bg"></div>
                         </div>
-                    </div><!--color-picker-->
+                    </div>
+                    <!--color-picker-->
                     <div class="drawing-area-br-width mb-3">
                         <label for="drawingAreaBorderWidth" class="form-label drawing-area-br-width__label">Border width
                             <span></span></label>
                         <input type="range" min="0" max="50" step="1" class="form-range drawing-area-br-width__input"
                             id="drawingAreaBorderWidth">
-                    </div><!--drawing-area-br-width-->
+                    </div>
+                    <!--drawing-area-br-width-->
                     <div class="dropdown color-picker mb-3 drawing-area-br-color-dropdown">
-                        <button class="btn btn-dark dropdown-toggle color-picker__btn" data-bs-auto-close="outside" type="button"
-                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-dark dropdown-toggle color-picker__btn" data-bs-auto-close="outside"
+                            type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             Border color <span class="color-picker__indicator"></span>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <div class="color-picker__drawing-area-br-color"></div>
                         </div>
-                    </div><!--color-picker-->
+                    </div>
+                    <!--color-picker-->
                     <div class="drawing-area-br-style">
                         <label for="drawingAreaBorderStyle" class="form-label mb-2">Border style</label>
                         <select id="drawingAreaBorderStyle" class="form-select drawing-area-br-style__select">
@@ -111,7 +145,8 @@
                             <option value="dashed">Dashed</option>
                             <option value="double">Double</option>
                         </select>
-                    </div><!--drawing-area-br-style-->
+                    </div>
+                    <!--drawing-area-br-style-->
                 </div>
                 <!--card-body-->
 
