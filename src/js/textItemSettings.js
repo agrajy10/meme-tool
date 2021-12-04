@@ -1,5 +1,5 @@
 import Picker from "vanilla-picker";
-import WebFont from "webfontloader";
+import WebFont, { load } from "webfontloader";
 import appState from "./appState";
 import drawingAreaObj from "./classes/DrawingArea";
 
@@ -15,6 +15,7 @@ const textContentTransformOptions = document.querySelectorAll('.text-content-tra
 const textContentFontSelect = document.querySelector('.text-content-ff__select');
 const textContentFontVariantSelect = document.querySelector('.text-content-ff__variant-select');
 let fontsList;
+const loadedFontsList = [];
 
 const textContentColorPicker = new Picker({
   parent: textContentColorPickerEl,
@@ -94,18 +95,21 @@ async function loadFontsList() {
     const data = await response.json();
     fontsList = data.items.slice(0, 100);
     textContentFontSelect.innerHTML = fontsList.map(font => `<option value="${font.family}" data-category="${font.category}">${font.family}</option>`);
-    loadFontFamily(textContentFontSelect.value);
+    loadFontFamily(`${textContentFontSelect.value}`);
   } catch(error) {
     console.log(error);
   }
 }
 
 function loadFontFamily(fontFamily) {
-  WebFont.load({
-    google:{
-      families: [fontFamily]
-    }
-  });
+  if(!loadedFontsList.includes(fontFamily)) {
+    WebFont.load({
+      google:{
+        families: [`${fontFamily}:regular`]
+      }
+    });
+    loadedFontsList.push(`${fontFamily}:regular`);
+  }
   const selectedFont = fontsList.find(font => font.family === fontFamily);
   textContentFontVariantSelect.innerHTML = selectedFont.variants.filter(variant => {
     if(variant.includes('italic')) {
@@ -117,16 +121,20 @@ function loadFontFamily(fontFamily) {
   });
   if(appState.currentSelectedItem) {
     appState.currentSelectedItem.fontFamily = {fontFamily: fontFamily, fontCategory: selectedFont.category};
+    appState.currentSelectedItem.fontWeight = 'regular';
   }
 }
 
 function loadSelectedFontFamilyVariant(variant) {
   const str = `${textContentFontSelect.value}:${variant}`;
-  WebFont.load({
-    google:{
-      families: [str]
-    }
-  });
+  if(!loadedFontsList.includes(str)) {
+    WebFont.load({
+      google:{
+        families: [str]
+      }
+    });
+    loadedFontsList.push(str);
+  }
   if(appState.currentSelectedItem) {
     appState.currentSelectedItem.fontWeight = variant;
   }

@@ -107,7 +107,9 @@ class Text {
   }
 
   set fontWeight(newFontWeight) {
+    console.log(newFontWeight);
     this.styles.fontWeight = newFontWeight;
+    console.log(this);
     this.el.style.fontWeight = this.styles.fontWeight;
   }
 }
