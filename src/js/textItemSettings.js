@@ -1,4 +1,5 @@
 import Picker from "vanilla-picker";
+import WebFont from "webfontloader";
 import appState from "./appState";
 import drawingAreaObj from "./classes/DrawingArea";
 
@@ -11,6 +12,9 @@ const textContentFsLbl = document.querySelector('.text-content-fs__label span');
 const textContentFsInput = document.querySelector('.text-content-fs__input');
 const textContentTransform = document.querySelector('.text-content-transform');
 const textContentTransformOptions = document.querySelectorAll('.text-content-transform__option');
+const textContentFontSelect = document.querySelector('.text-content-ff__select');
+const textContentFontVariantSelect = document.querySelector('.text-content-ff__variant-select');
+let fontsList;
 
 const textContentColorPicker = new Picker({
   parent: textContentColorPickerEl,
@@ -42,6 +46,10 @@ function selectTextItem(itemObj) {
       option.checked = true;
     }
   });
+  textContentFontSelect.disabled = false;
+  textContentFontVariantSelect.disabled = false;
+  textContentFontSelect.value = appState.currentSelectedItem.fontFamily;
+  textContentFontVariantSelect.value = appState.currentSelectedItem.fontWeight;
 }
 
 function updateTextItemContent(e) {
@@ -80,9 +88,57 @@ function changeTextItemTransform(e) {
   appState.currentSelectedItem.textTransform = value;
 }
 
+async function loadFontsList() {
+  try {
+    const response = await fetch(`https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.GOOGLE_FONTS_API_KEY}&sort=popularity`);
+    const data = await response.json();
+    fontsList = data.items.slice(0, 100);
+    textContentFontSelect.innerHTML = fontsList.map(font => `<option value="${font.family}" data-category="${font.category}">${font.family}</option>`);
+    loadFontFamily(textContentFontSelect.value);
+  } catch(error) {
+    console.log(error);
+  }
+}
+
+function loadFontFamily(fontFamily) {
+  WebFont.load({
+    google:{
+      families: [fontFamily]
+    }
+  });
+  const selectedFont = fontsList.find(font => font.family === fontFamily);
+  textContentFontVariantSelect.innerHTML = selectedFont.variants.map(variant => {
+    return `<option value="${variant}" ${variant === 'regular' && 'selected'}>${variant}</option>`
+  });
+  if(appState.currentSelectedItem) {
+    appState.currentSelectedItem.fontFamily = {fontFamily: fontFamily, fontCategory: selectedFont.category};
+  }
+}
+
+function loadSelectedFontFamilyVariant(variant) {
+  const str = `${textContentFontSelect.value}:${variant}`;
+  WebFont.load({
+    google:{
+      families: [str]
+    }
+  });
+  if(appState.currentSelectedItem) {
+    appState.currentSelectedItem.fontWeight = variant;
+  }
+}
+
 textContentInput.addEventListener("change", updateTextItemContent);
 textContentDeleteBtn.addEventListener("click", deleteSelectedTextItem);
 textContentFsInput.addEventListener('input', changeTextItemFontSize);
 textContentTransform.addEventListener('change', changeTextItemTransform);
 
+textContentFontSelect.addEventListener('change', function(e) {
+  loadFontFamily(e.target.value);
+});
+
+textContentFontVariantSelect.addEventListener('change', function(e) {
+  loadSelectedFontFamilyVariant(e.target.value);
+});
+
+loadFontsList();
 export { selectTextItem };

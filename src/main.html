@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <!--color-picker-->
-                    <div class="text-content-fs mb-3">
+                    <div class="text-content-fs mb-2">
                         <label for="textContentFs" class="form-label text-content-fs__label">Font size
                             <span></span></label>
                         <input disabled type="range" min="10" max="60" step="1"
@@ -72,6 +72,17 @@
                             <input disabled type="radio" value="capitalize" class="btn-check text-content-transform__option" name="textContentTransform" id="transformCapitalize" autocomplete="off">
                             <label class="btn btn-outline-primary btn-sm mb-1" for="transformCapitalize">Capital Case</label>
                         </div>
+                    </div>
+
+                    <div class="mb-3 text-content-ff">
+                        <label class="form-label mb-2" for="textContentFontFamily">Font family</label>
+                        <select id="textContentFontFamily" class="form-select text-content-ff__select mb-2" disabled>
+                            <option value="">Select font</option>
+                        </select>
+                        <label class="form-label mb-2" for="textContentFontFamilyVariant">Font weight</label>
+                        <select id="textContentFontFamilyVariant" class="form-select text-content-ff__variant-select" disabled>
+                            <option value="">Select weight</option>
+                        </select>
                     </div>
 
                 </div>

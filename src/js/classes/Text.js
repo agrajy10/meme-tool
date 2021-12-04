@@ -5,8 +5,10 @@ class Text {
   constructor() {
     this.content = "Line of text",
     this.styles = {
+        fontFamily: 'Roboto',
+        fontCategory : 'sans-serif',
         fontSize: 25,
-        fontWeight: 400,
+        fontWeight: 'regular',
         lineHeight: 1,
         letterSpacing: 1,
         textTransform: "none",
@@ -15,7 +17,7 @@ class Text {
         top: 0,
         left: 0,
         color: '#000000'
-      },
+    },
     this.el = this._generateMarkup();
     this.el.addEventListener("mousedown", mouseDownHandler(this));
     this.el.addEventListener("click", this.clickHandler.bind(this));
@@ -29,6 +31,7 @@ class Text {
     const div = document.createElement("div");
     div.classList.add("text-item");
     div.textContent = this.content;
+    div.style.fontFamily = `${this.styles.fontFamily}, ${this.styles.fontCategory}`;
     div.style.fontSize = `${this.styles.fontSize}px`;
     div.style.fontWeight = this.styles.fontWeight;
     div.style.lineHeight = this.styles.lineHeight;
@@ -57,6 +60,14 @@ class Text {
 
   get textTransform() {
     return this.styles.textTransform;
+  }
+
+  get fontFamily(){
+    return this.styles.fontFamily;
+  }
+
+  get fontWeight(){
+    return this.styles.fontWeight;
   }
   
   set topPos(pos) {
@@ -87,6 +98,17 @@ class Text {
   set textTransform(value) {
     this.styles.textTransform = value;
     this.el.style.textTransform = this.styles.textTransform;
+  }
+
+  set fontFamily({fontFamily, fontCategory}) {
+    this.styles.fontFamily = fontFamily;
+    this.styles.fontCategory = fontCategory;
+    this.el.style.fontFamily = `${this.styles.fontFamily}, ${this.styles.fontCategory}`;
+  }
+
+  set fontWeight(newFontWeight) {
+    this.styles.fontWeight = newFontWeight;
+    this.el.style.fontWeight = this.styles.fontWeight;
   }
 }
 
