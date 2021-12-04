@@ -107,7 +107,12 @@ function loadFontFamily(fontFamily) {
     }
   });
   const selectedFont = fontsList.find(font => font.family === fontFamily);
-  textContentFontVariantSelect.innerHTML = selectedFont.variants.map(variant => {
+  textContentFontVariantSelect.innerHTML = selectedFont.variants.filter(variant => {
+    if(variant.includes('italic')) {
+      return false;
+    }
+    return variant;
+  }).map(variant => {
     return `<option value="${variant}" ${variant === 'regular' && 'selected'}>${variant}</option>`
   });
   if(appState.currentSelectedItem) {
