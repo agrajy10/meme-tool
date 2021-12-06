@@ -57,6 +57,17 @@
                     </div>
                     <!--drawing-area-br-width-->
                     
+                    <div class="mb-3 text-content-ff">
+                        <label class="form-label mb-2" for="textContentFontFamily">Font family</label>
+                        <select id="textContentFontFamily" class="form-select text-content-ff__select mb-2" disabled>
+                            <option value="">Select font</option>
+                        </select>
+                        <label class="form-label mb-2" for="textContentFontFamilyVariant">Font weight</label>
+                        <select id="textContentFontFamilyVariant" class="form-select text-content-ff__variant-select" disabled>
+                            <option value="">Select weight</option>
+                        </select>
+                    </div>
+
                     <div class="mb-3 text-content-transform">
                         <h3 class="h6">Text transform</h3>
                         <div role="group" aria-label="Text transform options">
@@ -74,15 +85,18 @@
                         </div>
                     </div>
 
-                    <div class="mb-3 text-content-ff">
-                        <label class="form-label mb-2" for="textContentFontFamily">Font family</label>
-                        <select id="textContentFontFamily" class="form-select text-content-ff__select mb-2" disabled>
-                            <option value="">Select font</option>
-                        </select>
-                        <label class="form-label mb-2" for="textContentFontFamilyVariant">Font weight</label>
-                        <select id="textContentFontFamilyVariant" class="form-select text-content-ff__variant-select" disabled>
-                            <option value="">Select weight</option>
-                        </select>
+                    <div class="mb-3 text-content-alignment">
+                        <h3 class="h6">Text alignment</h3>
+                        <div role="group" aria-label="Text alignment options">
+                            <input disabled type="radio" value="left" class="btn-check text-content-alignment__option" name="textContentAlignment" id="textAlignLeft" autocomplete="off" checked>
+                            <label class="btn btn-outline-primary btn-sm mb-1" for="textAlignLeft">Left</label>
+
+                            <input disabled type="radio" value="right" class="btn-check text-content-alignment__option" name="textContentAlignment" id="textAlignRight" autocomplete="off">
+                            <label class="btn btn-outline-primary btn-sm mb-1" for="textAlignRight">Right</label>
+
+                            <input disabled type="radio" value="center" class="btn-check text-content-alignment__option" name="textContentAlignment" id="textAlignCenter" autocomplete="off">
+                            <label class="btn btn-outline-primary btn-sm mb-1" for="textAlignCenter">Center</label>
+                        </div>
                     </div>
 
                 </div>

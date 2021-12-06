@@ -11,9 +11,9 @@ const textContentColorPickerEl = document.querySelector(".color-picker__text-ite
 const textContentFsLbl = document.querySelector('.text-content-fs__label span');
 const textContentFsInput = document.querySelector('.text-content-fs__input');
 const textContentTransform = document.querySelector('.text-content-transform');
-const textContentTransformOptions = document.querySelectorAll('.text-content-transform__option');
 const textContentFontSelect = document.querySelector('.text-content-ff__select');
 const textContentFontVariantSelect = document.querySelector('.text-content-ff__variant-select');
+const textContentAlignment = document.querySelector('.text-content-alignment');
 let fontsList;
 const loadedFontsList = [];
 
@@ -41,7 +41,7 @@ function selectTextItem(itemObj) {
   textContentFsInput.disabled = false;
   textContentFsInput.value = appState.currentSelectedItem.fontSize;
   textContentFsLbl.textContent = `(${appState.currentSelectedItem.fontSize}px)`;
-  textContentTransformOptions.forEach(option => {
+  textContentTransform.querySelectorAll('.text-content-transform__option').forEach(option => {
     option.disabled = false;
     if(option.value === appState.currentSelectedItem.textTransform) {
       option.checked = true;
@@ -51,6 +51,12 @@ function selectTextItem(itemObj) {
   textContentFontVariantSelect.disabled = false;
   textContentFontSelect.value = appState.currentSelectedItem.fontFamily;
   textContentFontVariantSelect.value = appState.currentSelectedItem.fontWeight;
+  textContentAlignment.querySelectorAll('.text-content-alignment__option').forEach(option => {
+    option.disabled = false;
+    if(option.value === appState.currentSelectedItem.textAlign) {
+      option.checked = true;
+    }
+  });
 }
 
 function updateTextItemContent(e) {
@@ -85,8 +91,7 @@ function changeTextItemFontSize(e) {
 }
 
 function changeTextItemTransform(e) {
-  const value = e.target.value;
-  appState.currentSelectedItem.textTransform = value;
+  appState.currentSelectedItem.textTransform = e.target.value;
 }
 
 async function loadFontsList() {
@@ -140,18 +145,15 @@ function loadSelectedFontFamilyVariant(variant) {
   }
 }
 
+function changeTextItemAlignment(e) {
+  appState.currentSelectedItem.textAlign = e.target.value;
+}
+
 textContentInput.addEventListener("change", updateTextItemContent);
 textContentDeleteBtn.addEventListener("click", deleteSelectedTextItem);
 textContentFsInput.addEventListener('input', changeTextItemFontSize);
 textContentTransform.addEventListener('change', changeTextItemTransform);
+textContentAlignment.addEventListener('click', changeTextItemAlignment);
 
-textContentFontSelect.addEventListener('change', function(e) {
-  loadFontFamily(e.target.value);
-});
-
-textContentFontVariantSelect.addEventListener('change', function(e) {
-  loadSelectedFontFamilyVariant(e.target.value);
-});
-
-loadFontsList();
+//loadFontsList();
 export { selectTextItem };

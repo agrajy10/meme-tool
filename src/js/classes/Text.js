@@ -9,6 +9,7 @@ class Text {
         fontCategory : 'sans-serif',
         fontSize: 25,
         fontWeight: 'regular',
+        textAlign: 'left',
         lineHeight: 1,
         letterSpacing: 1,
         textTransform: "none",
@@ -37,6 +38,7 @@ class Text {
     div.style.lineHeight = this.styles.lineHeight;
     div.style.letterSpacing = `${this.styles.letterSpacing}px`;
     div.style.textTransform = this.styles.textTransform;
+    div.style.textAlign = this.styles.textAlign;
     div.style.cursor = this.styles.cursor;
     div.style.userSelect = this.styles.userSelect;
     div.style.position = "absolute";
@@ -68,6 +70,10 @@ class Text {
 
   get fontWeight(){
     return this.styles.fontWeight;
+  }
+
+  get textAlign() {
+    return this.styles.textAlign;
   }
   
   set topPos(pos) {
@@ -107,10 +113,13 @@ class Text {
   }
 
   set fontWeight(newFontWeight) {
-    console.log(newFontWeight);
     this.styles.fontWeight = newFontWeight;
-    console.log(this);
     this.el.style.fontWeight = this.styles.fontWeight;
+  }
+
+  set textAlign(newTextAlign) {
+    this.styles.textAlign = newTextAlign;
+    this.el.style.textAlign = this.styles.textAlign;
   }
 }
 
