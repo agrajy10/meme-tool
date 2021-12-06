@@ -1,5 +1,7 @@
 import Picker from "vanilla-picker";
-import WebFont, { load } from "webfontloader";
+import WebFont, {
+  load
+} from "webfontloader";
 import appState from "./appState";
 import drawingAreaObj from "./classes/DrawingArea";
 
@@ -14,6 +16,7 @@ const textContentTransform = document.querySelector('.text-content-transform');
 const textContentFontSelect = document.querySelector('.text-content-ff__select');
 const textContentFontVariantSelect = document.querySelector('.text-content-ff__variant-select');
 const textContentAlignment = document.querySelector('.text-content-alignment');
+const textContentPosition = document.querySelector('.text-content-position');
 let fontsList;
 const loadedFontsList = [];
 
@@ -43,7 +46,7 @@ function selectTextItem(itemObj) {
   textContentFsLbl.textContent = `(${appState.currentSelectedItem.fontSize}px)`;
   textContentTransform.querySelectorAll('.text-content-transform__option').forEach(option => {
     option.disabled = false;
-    if(option.value === appState.currentSelectedItem.textTransform) {
+    if (option.value === appState.currentSelectedItem.textTransform) {
       option.checked = true;
     }
   });
@@ -53,7 +56,7 @@ function selectTextItem(itemObj) {
   textContentFontVariantSelect.value = appState.currentSelectedItem.fontWeight;
   textContentAlignment.querySelectorAll('.text-content-alignment__option').forEach(option => {
     option.disabled = false;
-    if(option.value === appState.currentSelectedItem.textAlign) {
+    if (option.value === appState.currentSelectedItem.textAlign) {
       option.checked = true;
     }
   });
@@ -106,15 +109,15 @@ async function loadFontsList() {
     fontsList = data.items.slice(0, 100);
     textContentFontSelect.innerHTML = fontsList.map(font => `<option value="${font.family}" data-category="${font.category}">${font.family}</option>`);
     loadFontFamily(`${textContentFontSelect.value}`);
-  } catch(error) {
+  } catch (error) {
     console.log(error);
   }
 }
 
 function loadFontFamily(fontFamily) {
-  if(!loadedFontsList.includes(fontFamily)) {
+  if (!loadedFontsList.includes(fontFamily)) {
     WebFont.load({
-      google:{
+      google: {
         families: [`${fontFamily}:regular`]
       }
     });
@@ -122,30 +125,33 @@ function loadFontFamily(fontFamily) {
   }
   const selectedFont = fontsList.find(font => font.family === fontFamily);
   textContentFontVariantSelect.innerHTML = selectedFont.variants.filter(variant => {
-    if(variant.includes('italic')) {
+    if (variant.includes('italic')) {
       return false;
     }
     return variant;
   }).map(variant => {
     return `<option value="${variant}" ${variant === 'regular' && 'selected'}>${variant}</option>`
   });
-  if(appState.currentSelectedItem) {
-    appState.currentSelectedItem.fontFamily = {fontFamily: fontFamily, fontCategory: selectedFont.category};
+  if (appState.currentSelectedItem) {
+    appState.currentSelectedItem.fontFamily = {
+      fontFamily: fontFamily,
+      fontCategory: selectedFont.category
+    };
     appState.currentSelectedItem.fontWeight = 'regular';
   }
 }
 
 function loadSelectedFontFamilyVariant(variant) {
   const str = `${textContentFontSelect.value}:${variant}`;
-  if(!loadedFontsList.includes(str)) {
+  if (!loadedFontsList.includes(str)) {
     WebFont.load({
-      google:{
+      google: {
         families: [str]
       }
     });
     loadedFontsList.push(str);
   }
-  if(appState.currentSelectedItem) {
+  if (appState.currentSelectedItem) {
     appState.currentSelectedItem.fontWeight = variant;
   }
 }
@@ -154,17 +160,65 @@ function changeTextItemAlignment(e) {
   appState.currentSelectedItem.textAlign = e.target.value;
 }
 
+function setTextItemPosition(e) {
+  const width = drawingAreaObj.width;
+  const height = drawingAreaObj.height;
+  const cls = e.target.classList;
+  switch (true) {
+    case cls.contains('text-content-position__top-left'):
+      appState.currentSelectedItem.leftPos = 0;
+      appState.currentSelectedItem.topPos = 0;
+      break;
+    case cls.contains('text-content-position__top-right'):
+      appState.currentSelectedItem.leftPos = width - appState.currentSelectedItem.width;
+      appState.currentSelectedItem.topPos = 0;
+      break;
+    case cls.contains('text-content-position__top-center'):
+      appState.currentSelectedItem.leftPos = (width / 2) - (appState.currentSelectedItem.width / 2);
+      appState.currentSelectedItem.topPos = 0;
+      break;
+    case cls.contains('text-content-position__center'):
+      appState.currentSelectedItem.leftPos = (width / 2) - (appState.currentSelectedItem.width / 2);
+      appState.currentSelectedItem.topPos = (height / 2) - (appState.currentSelectedItem.height / 2);
+      break;
+    case cls.contains('text-content-position__center-left'):
+      appState.currentSelectedItem.leftPos = 0;
+      appState.currentSelectedItem.topPos = (height / 2) - (appState.currentSelectedItem.height / 2);
+      break;
+    case cls.contains('text-content-position__center-right'):
+      appState.currentSelectedItem.leftPos = width - appState.currentSelectedItem.width;
+      appState.currentSelectedItem.topPos  = (height / 2) - (appState.currentSelectedItem.height / 2);
+      break;
+    case cls.contains('text-content-position__bottom-left'):
+      appState.currentSelectedItem.leftPos = 0;
+      appState.currentSelectedItem.topPos = height - appState.currentSelectedItem.height;
+      break;
+    case cls.contains('text-content-position__bottom-right'):
+      appState.currentSelectedItem.leftPos = width - appState.currentSelectedItem.width;
+      appState.currentSelectedItem.topPos = height - appState.currentSelectedItem.height;
+      break;
+    case cls.contains('text-content-position__bottom-center'):
+      appState.currentSelectedItem.leftPos = (width / 2) - (appState.currentSelectedItem.width / 2);
+      appState.currentSelectedItem.topPos = height - appState.currentSelectedItem.height;
+      break;
+    default:
+      break;
+  }
+}
+
 textContentInput.addEventListener("change", updateTextItemContent);
 textContentDeleteBtn.addEventListener("click", deleteSelectedTextItem);
 textContentFsInput.addEventListener('input', changeTextItemFontSize);
-textContentFontSelect.addEventListener('change', function(e) {
+textContentFontSelect.addEventListener('change', function (e) {
   loadFontFamily(e.target.value);
 });
-textContentFontVariantSelect.addEventListener('change', function(e) {
+textContentFontVariantSelect.addEventListener('change', function (e) {
   loadSelectedFontFamilyVariant(e.target.value);
 });
 textContentTransform.addEventListener('change', changeTextItemTransform);
 textContentAlignment.addEventListener('click', changeTextItemAlignment);
-
+textContentPosition.addEventListener('click', setTextItemPosition);
 loadFontsList();
-export { selectTextItem };
+export {
+  selectTextItem
+};

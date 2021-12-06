@@ -77,6 +77,14 @@ class Text {
   get textAlign() {
     return this.styles.textAlign;
   }
+
+  get width() {
+    return this.el.getBoundingClientRect().width
+  }
+
+  get height() {
+    return this.el.getBoundingClientRect().height
+  }
   
   set topPos(pos) {
     this.styles.top = pos;
