@@ -157,8 +157,14 @@ function changeTextItemAlignment(e) {
 textContentInput.addEventListener("change", updateTextItemContent);
 textContentDeleteBtn.addEventListener("click", deleteSelectedTextItem);
 textContentFsInput.addEventListener('input', changeTextItemFontSize);
+textContentFontSelect.addEventListener('change', function(e) {
+  loadFontFamily(e.target.value);
+});
+textContentFontVariantSelect.addEventListener('change', function(e) {
+  loadSelectedFontFamilyVariant(e.target.value);
+});
 textContentTransform.addEventListener('change', changeTextItemTransform);
 textContentAlignment.addEventListener('click', changeTextItemAlignment);
 
-//loadFontsList();
+loadFontsList();
 export { selectTextItem };
