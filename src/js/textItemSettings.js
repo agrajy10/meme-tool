@@ -80,7 +80,12 @@ function deleteSelectedTextItem() {
   textContentDeleteBtn.disabled = true;
   textContentColorPickerBtn.disabled = true;
   textContentFsInput.disabled = true;
-  textContentTransformOptions.forEach(option => {
+  textContentFontSelect.disabled = true;
+  textContentFontVariantSelect.disabled = true;
+  textContentTransform.querySelectorAll('.text-content-transform__option').forEach(option => {
+    option.disabled = true;
+  });
+  textContentAlignment.querySelectorAll('.text-content-alignment__option').forEach(option => {
     option.disabled = true;
   });
 }

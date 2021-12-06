@@ -41,3 +41,8 @@ body {
 .item-selected {
   outline: 2px dashed cornflowerblue;
 }
+
+.drawing-area .text-item p {
+  margin-bottom: 0;
+  white-space: pre;
+}

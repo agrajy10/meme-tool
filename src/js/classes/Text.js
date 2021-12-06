@@ -30,8 +30,10 @@ class Text {
 
   _generateMarkup() {
     const div = document.createElement("div");
+    const p  = document.createElement('p');
+    p.textContent = this.content;
+    div.appendChild(p);
     div.classList.add("text-item");
-    div.textContent = this.content;
     div.style.fontFamily = `${this.styles.fontFamily}, ${this.styles.fontCategory}`;
     div.style.fontSize = `${this.styles.fontSize}px`;
     div.style.fontWeight = this.styles.fontWeight;
@@ -88,7 +90,7 @@ class Text {
 
   set itemContent(newContent) {
     this.content = newContent;
-    this.el.textContent = this.content;
+    this.el.children[0].textContent = this.content;
   }
 
   set textColor(color) {
