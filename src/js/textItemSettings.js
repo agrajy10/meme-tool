@@ -60,6 +60,9 @@ function selectTextItem(itemObj) {
       option.checked = true;
     }
   });
+  textContentPosition.querySelectorAll('.btn').forEach(button => {
+    button.disabled = false;
+  });
 }
 
 function updateTextItemContent(e) {
@@ -90,6 +93,9 @@ function deleteSelectedTextItem() {
   });
   textContentAlignment.querySelectorAll('.text-content-alignment__option').forEach(option => {
     option.disabled = true;
+  });
+  textContentPosition.querySelectorAll('.btn').forEach(button => {
+    button.disabled = true;
   });
 }
 
