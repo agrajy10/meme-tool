@@ -3,12 +3,12 @@ import drawingAreaObj from "./classes/DrawingArea"
 
 const drawingAreaWidthInput = document.querySelector('.drawing-area-size__width-input');
 const drawingAreaHeightInput = document.querySelector('.drawing-area-size__height-input');
-const drawingAreaBgColorDropdown = document.querySelector('.drawing-area-bg-color-dropdown')
-const drawingAreaBgPickerEl = document.querySelector('.color-picker__drawing-area-bg');
-const drawingAreaBrWidthLbl = document.querySelector('.drawing-area-br-width__label');
-const drawingAreaBrWidthInput = document.querySelector('.drawing-area-br-width__input');
-const drawingAreaBrColorDropdown = document.querySelector('.drawing-area-br-color-dropdown');
-const drawingAreaBrColorPickerEl = document.querySelector('.color-picker__drawing-area-br-color');
+const drawingAreaColorPickerBtn = document.querySelector('.drawing-area-color-picker__btn');
+const drawingAreaColorPickerEl = document.querySelector('.drawing-area-color-picker__el');
+const drawingAreaBrCurrentWidthLbl = document.querySelector('.drawing-area-br-w__lbl span');
+const drawingAreaBrWidthInput = document.querySelector('.drawing-area-br-w__input');
+const drawingAreaBrColorPickerBtn = document.querySelector('.drawing-area-br-color-picker__btn');
+const drawingAreaBrColorPickerEl = document.querySelector('.drawing-area-br-color-picker__el');
 const drawingAreaBrStyleSelect = document.querySelector('.drawing-area-br-style__select');
 
 let drawingAreaBgColorPicker;
@@ -24,7 +24,7 @@ function changeDrawingAreaHeight(e) {
 
 function changeDrawingAreaBrWidth(e) {
     drawingAreaObj.borderWidth = e.target.value;
-    drawingAreaBrWidthLbl.querySelector('span').textContent = `(${drawingAreaObj.borderWidth}px)`;
+    drawingAreaBrCurrentWidthLbl.textContent = `(${drawingAreaObj.borderWidth}px)`;
 }
 
 function changeDrawingAreaBrStyle(e) {
@@ -38,15 +38,15 @@ function initDrawingAreaSettings() {
 
     drawingAreaBgColorPicker = new Picker({
         color: drawingAreaObj.backgroundColor,
-        parent: drawingAreaBgPickerEl,
+        parent: drawingAreaColorPickerEl,
         popup: false,
         onChange: function (color) {
             drawingAreaObj.backgroundColor = color.hex;
-            drawingAreaBgColorDropdown.querySelector(".btn span").style.backgroundColor = color.hex;
+            drawingAreaColorPickerBtn.querySelector("span").style.backgroundColor = color.hex;
         },
     });
 
-    drawingAreaBrWidthLbl.querySelector('span').textContent = `(${drawingAreaObj.borderWidth}px)`;
+    drawingAreaBrCurrentWidthLbl.textContent = `(${drawingAreaObj.borderWidth}px)`;
     drawingAreaBrWidthInput.value = drawingAreaObj.borderWidth;
 
     drawingAreaBrColorPicker = new Picker({
@@ -55,7 +55,7 @@ function initDrawingAreaSettings() {
         popup: false,
         onChange: function (color) {
             drawingAreaObj.borderColor = color.hex;
-            drawingAreaBrColorDropdown.querySelector(".btn span").style.backgroundColor = color.hex;
+            drawingAreaBrColorPickerBtn.querySelector(".btn span").style.backgroundColor = color.hex;
         },
     });
 
