@@ -1,5 +1,5 @@
 import mouseDownHandler from "../drag";
-import { selectTextBlock } from "../textItemSettings";
+import selectTextBlock from "../textBlockSettings/selectText";
 
 class TextBlock {
   constructor() {

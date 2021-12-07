@@ -1,6 +1,6 @@
 import * as bootstrap from 'bootstrap'
 import initDrawingAreaSettings from './drawingAreaSettings';
-import initializeTextBlockSettings from './textItemSettings';
+import initializeTextBlockSettings from './textBlockSettings/textBlockSettings';
 
 function init() {
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
