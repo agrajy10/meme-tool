@@ -1,5 +1,5 @@
 import * as bootstrap from 'bootstrap'
-import initDrawingAreaSettings from './drawingAreaSettings';
+import initDrawingAreaSettings from './drawingAreaSettings/drawingAreaSettings';
 import initializeTextBlockSettings from './textBlockSettings/textBlockSettings';
 
 function init() {
