@@ -1,7 +1,7 @@
 import mouseDownHandler from "../drag";
 import { selectTextItem } from "../textItemSettings";
 
-class Text {
+class TextBlock {
   constructor() {
     this.content = "Line of text",
     this.styles = {
@@ -86,28 +86,28 @@ class Text {
     return this.el.getBoundingClientRect().height
   }
   
-  set topPos(pos) {
-    this.styles.top = pos;
+  set topPos(value) {
+    this.styles.top = value;
     this.el.style.top = `${this.styles.top}px`;
   }
 
-  set leftPos(pos) {
-    this.styles.left = pos;
+  set leftPos(value) {
+    this.styles.left = value;
     this.el.style.left = `${this.styles.left}px`;
   }
 
-  set itemContent(newContent) {
-    this.content = newContent;
+  set itemContent(value) {
+    this.content = value;
     this.el.children[0].textContent = this.content;
   }
 
-  set textColor(color) {
-    this.styles.color = color;
+  set textColor(value) {
+    this.styles.color = value;
     this.el.style.color = this.styles.color;
   }
 
-  set fontSize(newFontSize) {
-    this.styles.fontSize = newFontSize;
+  set fontSize(value) {
+    this.styles.fontSize = value;
     this.el.style.fontSize = `${this.styles.fontSize}px`;
   }
 
@@ -122,15 +122,15 @@ class Text {
     this.el.style.fontFamily = `${this.styles.fontFamily}, ${this.styles.fontCategory}`;
   }
 
-  set fontWeight(newFontWeight) {
-    this.styles.fontWeight = newFontWeight;
+  set fontWeight(value) {
+    this.styles.fontWeight = value;
     this.el.style.fontWeight = this.styles.fontWeight;
   }
 
-  set textAlign(newTextAlign) {
-    this.styles.textAlign = newTextAlign;
+  set textAlign(value) {
+    this.styles.textAlign = value;
     this.el.style.textAlign = this.styles.textAlign;
   }
 }
 
-export default Text;
+export default TextBlock;

@@ -225,6 +225,7 @@ textContentTransform.addEventListener('change', changeTextItemTransform);
 textContentAlignment.addEventListener('click', changeTextItemAlignment);
 textContentPosition.addEventListener('click', setTextItemPosition);
 loadFontsList();
+
 export {
   selectTextItem
 };
