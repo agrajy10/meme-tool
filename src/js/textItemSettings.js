@@ -15,9 +15,20 @@ const textFontVariantSelect = document.querySelector('.text-ff__variant-select')
 const textAlignment = document.querySelector('.text-alignment');
 const textPosition = document.querySelector('.text-position');
 const loadedFontsList = [];
+const fontVariantLbl = {
+  100 : 'Thin',
+  300 : 'Light',
+  'regular' : 'Regular',
+  500 : 'Medium',
+  600 : 'Semi bold',
+  700 : 'Bold',
+  800 : 'Extra bold',
+  900 : 'Black'
+}
 
 let fontsList;
-let textContentColorPicker;
+let textColorPicker;
+
 
 export function selectTextBlock(itemObj) {
   appState.currentSelectedItem && appState.currentSelectedItem.el.classList.remove("item-selected");
@@ -28,7 +39,7 @@ export function selectTextBlock(itemObj) {
   textDeleteBtn.disabled = false;
   textColorPickerBtn.disabled = false;
   textColorPickerBtn.querySelector(".text-color-picker__indicator").style.backgroundColor = appState.currentSelectedItem.textColor;
-  textContentColorPicker.setColor(appState.currentSelectedItem.textColor);
+  textColorPicker.setColor(appState.currentSelectedItem.textColor);
   textFsInput.disabled = false;
   textFsInput.value = appState.currentSelectedItem.fontSize;
   textCurrentFsLbl.textContent = `(${appState.currentSelectedItem.fontSize}px)`;
@@ -41,7 +52,7 @@ export function selectTextBlock(itemObj) {
   textFontSelect.disabled = false;
   textFontVariantSelect.disabled = false;
   textFontSelect.value = appState.currentSelectedItem.fontFamily;
-  textFontVariantSelect.value = appState.currentSelectedItem.fontWeight;
+  textFontVariantSelect.value = appState.currentSelectedItem.fontWeight !== '400' ? appState.currentSelectedItem.fontWeight : 'regular';
   textAlignment.querySelectorAll('.text-alignment__option').forEach(option => {
     option.disabled = false;
     if (option.value === appState.currentSelectedItem.textAlign) {
@@ -124,7 +135,10 @@ function loadFontFamily(fontFamily) {
     }
     return variant;
   }).map(variant => {
-    return `<option value="${variant}" ${variant === 'regular' && 'selected'}>${variant}</option>`
+    if(variant === 'regular') {
+      return `<option value="${variant}" selected>${fontVariantLbl[variant]}</option>`;
+    } 
+    return `<option value="${variant}">${fontVariantLbl[variant]}</option>`;
   });
   if (appState.currentSelectedItem) {
     appState.currentSelectedItem.fontFamily = {
@@ -204,7 +218,7 @@ function initializeTextBlockSettings() {
   loadFontsList();
   textInput.addEventListener("change", updateText);
   textDeleteBtn.addEventListener("click", deleteSelectedText);
-  textContentColorPicker = new Picker({
+  textColorPicker = new Picker({
     parent: textColorPickerEl,
     popup: false,
     onChange: function (color) {

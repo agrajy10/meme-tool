@@ -8,7 +8,7 @@ class TextBlock {
         fontFamily: 'Roboto',
         fontCategory : 'sans-serif',
         fontSize: 25,
-        fontWeight: 'regular',
+        fontWeight: '400',
         textAlign: 'left',
         lineHeight: 1,
         letterSpacing: 1,
@@ -123,7 +123,11 @@ class TextBlock {
   }
 
   set fontWeight(value) {
-    this.styles.fontWeight = value;
+    if(value === 'regular') {
+      this.styles.fontWeight = '400';
+    } else {
+      this.styles.fontWeight = value;
+    }
     this.el.style.fontWeight = this.styles.fontWeight;
   }
 
