@@ -65,33 +65,33 @@ class DrawingArea {
         return this.styles.borderStyle
     }
 
-    set width(newWidth) {
-        this.size.width = newWidth;
+    set width(value) {
+        this.size.width = value;
         this.el.style.width = `${this.size.width}px`;
     }
 
-    set height(newHeight) {
-        this.size.height = newHeight;
+    set height(value) {
+        this.size.height = value;
         this.el.style.height = `${this.size.height}px`;
     }
 
-    set backgroundColor(color) {
-        this.styles.backgroundColor = color;
+    set backgroundColor(value) {
+        this.styles.backgroundColor = value;
         this.el.style.backgroundColor = this.styles.backgroundColor;
     }
 
-    set borderColor(color) {
-        this.styles.borderColor = color;
+    set borderColor(value) {
+        this.styles.borderColor = value;
         this.el.style.borderColor = this.styles.borderColor;
     }
 
-    set borderWidth(width) {
-        this.styles.borderWidth = width;
+    set borderWidth(value) {
+        this.styles.borderWidth = value;
         this.el.style.borderWidth = `${this.styles.borderWidth}px`;
     }
 
-    set borderStyle(style) {
-        this.styles.borderStyle = style;
+    set borderStyle(value) {
+        this.styles.borderStyle = value;
         this.el.style.borderStyle = this.styles.borderStyle;
     }
 

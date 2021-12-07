@@ -5,8 +5,8 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import "./scss/main.scss";
 import "./js/toolbar";
 import { initDrawingAreaSettings } from "./js/drawingAreaSettings";
+import init from './js/init';
 
+init();
 
-//initalize drawing area settings with default values
-initDrawingAreaSettings();
 

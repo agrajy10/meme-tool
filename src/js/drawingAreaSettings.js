@@ -10,6 +10,7 @@ const drawingAreaBrWidthInput = document.querySelector('.drawing-area-br-width__
 const drawingAreaBrColorDropdown = document.querySelector('.drawing-area-br-color-dropdown');
 const drawingAreaBrColorPickerEl = document.querySelector('.color-picker__drawing-area-br-color');
 const drawingAreaBrStyleSelect = document.querySelector('.drawing-area-br-style__select');
+
 let drawingAreaBgColorPicker;
 let drawingAreaBrColorPicker;
 
@@ -35,9 +36,6 @@ function initDrawingAreaSettings() {
     drawingAreaWidthInput.value = drawingAreaObj.width;
     drawingAreaHeightInput.value = drawingAreaObj.height;
 
-    drawingAreaWidthInput.addEventListener('blur', changeDrawingAreaWidth);
-    drawingAreaHeightInput.addEventListener('blur', changeDrawingAreaHeight);
-
     drawingAreaBgColorPicker = new Picker({
         color: drawingAreaObj.backgroundColor,
         parent: drawingAreaBgPickerEl,
@@ -50,7 +48,6 @@ function initDrawingAreaSettings() {
 
     drawingAreaBrWidthLbl.querySelector('span').textContent = `(${drawingAreaObj.borderWidth}px)`;
     drawingAreaBrWidthInput.value = drawingAreaObj.borderWidth;
-    drawingAreaBrWidthInput.addEventListener('input', changeDrawingAreaBrWidth);
 
     drawingAreaBrColorPicker = new Picker({
         color: drawingAreaObj.borderColor,
@@ -63,7 +60,11 @@ function initDrawingAreaSettings() {
     });
 
     drawingAreaBrStyleSelect.value = drawingAreaObj.borderStyle;
+
+    drawingAreaWidthInput.addEventListener('blur', changeDrawingAreaWidth);
+    drawingAreaHeightInput.addEventListener('blur', changeDrawingAreaHeight);
+    drawingAreaBrWidthInput.addEventListener('input', changeDrawingAreaBrWidth);
     drawingAreaBrStyleSelect.addEventListener('change', changeDrawingAreaBrStyle);
 }
 
-export { initDrawingAreaSettings }
+export default initDrawingAreaSettings;
