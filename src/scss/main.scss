@@ -20,11 +20,11 @@ body {
   margin:70px auto 0 auto;
 }
 
-.color-picker .color-picker__btn::after {
+.text-color-picker__btn::after {
   display: none;
 }
 
-.color-picker .color-picker__indicator {
+.text-color-picker__indicator {
   display: inline-block;
   position: relative;
   top: 3px;

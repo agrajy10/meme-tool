@@ -1,14 +1,13 @@
-import * as bootstrap from 'bootstrap'
 import drawingAreaObj from './classes/DrawingArea';
 import appState from './appState';
-import Text from './classes/Text'
+import TextBlock from './classes/TextBlock';
 
 const addTextBtn = document.querySelector(".toolbar__add-text");
 
 function insertTextItem() {
-  const textObj = new Text();
-  drawingAreaObj.appendItem(textObj);
-  appState.items.push(textObj);
+  const textBlockObj = new TextBlock();
+  drawingAreaObj.appendItem(textBlockObj);
+  appState.items.push(textBlockObj);
 }
 
 addTextBtn.addEventListener("click", insertTextItem);

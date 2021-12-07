@@ -1,5 +1,5 @@
 import mouseDownHandler from "../drag";
-import { selectTextItem } from "../textItemSettings";
+import { selectTextBlock } from "../textItemSettings";
 
 class TextBlock {
   constructor() {
@@ -25,7 +25,7 @@ class TextBlock {
   }
 
   clickHandler() {
-    selectTextItem(this);
+    selectTextBlock(this);
   }
 
   _generateMarkup() {

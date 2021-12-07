@@ -31,119 +31,119 @@
                 <div class="card-body">
                     <h2 class="fs-5">Settings panel</h2>
                     <hr>
-                    <div class="text-item-content">
-                        <label for="textItemContent" class="form-label mb-2">Content</label>
-                        <textarea disabled class="form-control text-item-content__input mb-2"
-                            id="textItemContent"></textarea>
+                    <div class="text-content">
+                        <label for="textContentInput" class="form-label mb-2">Content</label>
+                        <textarea disabled class="form-control text-content__input mb-2"
+                            id="textContentInput"></textarea>
+                        <button type="button" class="btn btn-danger text-content__delete-btn mb-3" disabled><i
+                                class="fas fa-trash" aria-hidden="true"></i> Delete</button>
                     </div>
-                    <!--text-item-settings-->
-                    <button type="button" class="btn btn-danger text-item-content__delete-btn mb-3" disabled><i
-                            class="fas fa-trash" aria-hidden="true"></i> Delete</button>
-                    <div class="dropdown color-picker mb-3 text-item-content-color-dropdown">
-                        <button class="btn btn-dark dropdown-toggle color-picker__btn" type="button"
-                            data-bs-auto-close="outside" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+      
+                    <div class="dropdown color-picker mb-3 text-color-picker">
+                        <button class="btn btn-dark dropdown-toggle text-color-picker__btn" type="button"
+                            data-bs-auto-close="outside" id="textColorPickerButton" data-bs-toggle="dropdown"
                             aria-expanded="false" disabled>
-                            Color <span class="color-picker__indicator"></span>
+                            Color <span class="text-color-picker__indicator"></span>
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <div class="color-picker__text-item-content"></div>
+                        <div class="dropdown-menu" aria-labelledby="textColorPickerButton">
+                            <div class="text-color-picker__el"></div>
                         </div>
                     </div>
                     <!--color-picker-->
-                    <div class="text-content-fs mb-2">
-                        <label for="textContentFs" class="form-label text-content-fs__label">Font size
+                    <div class="text-fs mb-2">
+                        <label for="textFs" class="form-label text-fs__lbl">Font size
                             <span></span></label>
                         <input disabled type="range" min="10" max="60" step="1"
-                            class="form-range text-content-fs__input" id="textContentFs">
+                            class="form-range text-fs__input" id="textFs">
                     </div>
                     <!--text-content-font-size-->
 
-                    <div class="mb-3 text-content-ff">
-                        <label class="form-label mb-2" for="textContentFontFamily">Font family</label>
-                        <select id="textContentFontFamily" class="form-select text-content-ff__select mb-2" disabled>
+                    <div class="mb-3 text-ff">
+                        <label class="form-label mb-2" for="textFontFamily">Font family</label>
+                        <select id="textFontFamily" class="form-select text-ff__select mb-2" disabled>
                             <option value="">Select font</option>
                         </select>
-                        <label class="form-label mb-2" for="textContentFontFamilyVariant">Font weight</label>
-                        <select id="textContentFontFamilyVariant" class="form-select text-content-ff__variant-select"
+                        <label class="form-label mb-2" for="textFontFamilyVariant">Font weight</label>
+                        <select id="textFontFamilyVariant" class="form-select text-ff__variant-select"
                             disabled>
                             <option value="">Select weight</option>
                         </select>
                     </div><!--text-content-font-family-->
 
-                    <div class="mb-3 text-content-transform">
+                    <div class="mb-3 text-transform">
                         <h3 class="h6">Text transform</h3>
                         <div role="group" aria-label="Text transform options">
-                            <input disabled type="radio" value="none" class="btn-check text-content-transform__option"
-                                name="textContentTransform" id="transformNone" autocomplete="off" checked>
+                            <input disabled type="radio" value="none" class="btn-check text-transform__option"
+                                name="textTransform" id="transformNone" autocomplete="off" checked>
                             <label class="btn btn-outline-primary btn-sm mb-1" for="transformNone">None</label>
 
                             <input disabled type="radio" value="uppercase"
-                                class="btn-check text-content-transform__option" name="textContentTransform"
+                                class="btn-check text-transform__option" name="textTransform"
                                 id="transformUpperCase" autocomplete="off">
                             <label class="btn btn-outline-primary btn-sm mb-1"
                                 for="transformUpperCase">Uppercase</label>
 
                             <input disabled type="radio" value="lowercase"
-                                class="btn-check text-content-transform__option" name="textContentTransform"
+                                class="btn-check text-transform__option" name="textTransform"
                                 id="transformLowerCase" autocomplete="off">
                             <label class="btn btn-outline-primary btn-sm mb-1"
                                 for="transformLowerCase">Lowercase</label>
 
                             <input disabled type="radio" value="capitalize"
-                                class="btn-check text-content-transform__option" name="textContentTransform"
+                                class="btn-check text-transform__option" name="textTransform"
                                 id="transformCapitalize" autocomplete="off">
                             <label class="btn btn-outline-primary btn-sm mb-1" for="transformCapitalize">Capital
                                 Case</label>
                         </div>
                     </div><!--text-content-transform-->
 
-                    <div class="mb-3 text-content-alignment">
+                    <div class="mb-3 text-alignment">
                         <h3 class="h6 mb-3">Text alignment</h3>
                         <div role="group" aria-label="Text alignment options">
-                            <input disabled type="radio" value="left" class="btn-check text-content-alignment__option"
-                                name="textContentAlignment" id="textAlignLeft" autocomplete="off" checked>
+                            <input disabled type="radio" value="left" class="btn-check text-alignment__option"
+                                name="textAlignment" id="textAlignLeft" autocomplete="off" checked>
                             <label class="btn btn-outline-primary btn-sm mb-1" for="textAlignLeft">Left</label>
 
-                            <input disabled type="radio" value="right" class="btn-check text-content-alignment__option"
-                                name="textContentAlignment" id="textAlignRight" autocomplete="off">
+                            <input disabled type="radio" value="right" class="btn-check text-alignment__option"
+                                name="textAlignment" id="textAlignRight" autocomplete="off">
                             <label class="btn btn-outline-primary btn-sm mb-1" for="textAlignRight">Right</label>
 
-                            <input disabled type="radio" value="center" class="btn-check text-content-alignment__option"
-                                name="textContentAlignment" id="textAlignCenter" autocomplete="off">
+                            <input disabled type="radio" value="center" class="btn-check text-alignment__option"
+                                name="textAlignment" id="textAlignCenter" autocomplete="off">
                             <label class="btn btn-outline-primary btn-sm mb-1" for="textAlignCenter">Center</label>
                         </div>
-                    </div><!--text-content-alignment-->
+                    </div><!--text-alignment-->
 
-                    <div class="mb-3 text-content-position">
+                    <div class="mb-3 text-position">
                         <h3 class="h6">Alignment <span class="small">(with respect to drawing area)</span></h3>
                         <span class="small d-block mb-1">Top</span>
                         <div class="btn-group mb-2" role="group" aria-label="Text item postion options">
-                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-content-position__top-left"
+                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-position__top-left"
                                 aria-label="Top left">Left</button>
-                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-content-position__top-center"
+                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-position__top-center"
                                 aria-label="Top center">Center</button>
-                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-content-position__top-right"
+                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-position__top-right"
                                 aria-label="Top right">Right</button>
                         </div>
                         <span class="small d-block mb-1">Center</span>
                         <div class="btn-group mb-2" role="group" aria-label="Text item postion options">
-                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-content-position__center-left"
+                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-position__center-left"
                                 aria-label="Top left">Left</button>
-                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-content-position__center"
+                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-position__center"
                                 aria-label="Top center">Center</button>
-                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-content-position__center-right"
+                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-position__center-right"
                                 aria-label="Top right">Right</button>
                         </div>
                         <span class="small d-block mb-1">Bottom</span>
                         <div class="btn-group" role="group" aria-label="Text item postion options">
-                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-content-position__bottom-left"
+                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-position__bottom-left"
                                 aria-label="Top left">Left</button>
-                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-content-position__bottom-center"
+                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-position__bottom-center"
                                 aria-label="Top center">Center</button>
-                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-content-position__bottom-right"
+                            <button disabled type="button" class="btn btn-outline-primary btn-sm text-position__bottom-right"
                                 aria-label="Top right">Right</button>
                         </div>
-                    </div><!--text-content-position-->
+                    </div><!--text-position-->
 
                 </div>
 
