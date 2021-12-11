@@ -6,6 +6,7 @@ let fontsList;
 const loadedFontsList = [];
 const fontVariantLbl = {
     100 : 'Thin',
+    200 : 'Extra-light',
     300 : 'Light',
     'regular' : 'Regular',
     500 : 'Medium',
@@ -21,7 +22,7 @@ async function loadFontsList() {
         const data = await response.json();
         fontsList = data.items.slice(0, 100);
         elements.textFontSelect.innerHTML = fontsList.map(font => `<option value="${font.family}" data-category="${font.category}">${font.family}</option>`);
-        loadFontFamily(`${elements.textFontSelect.value}`);
+        loadFontFamily('Oswald'); // load default font family of text block
     } catch (error) {
         console.log(error);
     }

@@ -5,14 +5,14 @@ class TextBlock {
   constructor() {
     this.content = "Line of text",
     this.styles = {
-        fontFamily: 'Roboto',
+        fontFamily: 'Oswald',
         fontCategory : 'sans-serif',
-        fontSize: 25,
-        fontWeight: '400',
+        fontSize: 40,
+        fontWeight: '700',
         textAlign: 'left',
         lineHeight: 1,
         letterSpacing: 1,
-        textTransform: "none",
+        textTransform: "uppercase",
         cursor: "move",
         userSelect: "none",
         top: 0,
