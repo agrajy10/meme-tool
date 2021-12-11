@@ -46,3 +46,18 @@ body {
   margin-bottom: 0;
   white-space: pre;
 }
+
+.meme-templates-modal__loader {
+  display:flex;
+  justify-content:center;
+}
+
+.meme-templates-modal__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+}
+
+.meme-templates-modal__grid img {
+  max-width: 100%;
+}

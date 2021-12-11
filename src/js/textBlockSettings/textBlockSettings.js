@@ -22,7 +22,7 @@ function changeTextAlignment(e) {
 }
 
 function initializeTextBlockSettings() {
-  loadFontsList();
+  //loadFontsList();
 
   textColorPicker = new Picker({
     parent: elements.textColorPickerEl,

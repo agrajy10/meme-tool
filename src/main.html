@@ -18,8 +18,8 @@
                 <button type="button" id="add-text-btn" class="btn btn-success mx-1 toolbar__add-text"
                     data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add text"><i class="fas fa-font"
                         aria-hidden="true"></i></button>
-                <button type="button" class="btn btn-success mx-1" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                    title="Select template"><i class="fas fa-image" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-success mx-1" data-bs-toggle="modal" data-bs-target="#memeTemplatesModal">
+                    <i class="fas fa-image" aria-hidden="true"></i></button>
             </div>
 
         </header>
@@ -236,6 +236,22 @@
         </main>
 
     </div>
+
+    <div class="modal fade meme-templates-modal" id="memeTemplatesModal" tabindex="-1" aria-labelledby="memeTemplatesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="memeTemplatesModalLabel">Select meme template</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="meme-templates-modal__loader"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>
+                <div class="meme-templates-modal__grid"></div>
+                <div class="meme-templates-modal__msg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
 </body>
 
