@@ -33,6 +33,14 @@ class DrawingArea {
         return div;
     }
 
+    appendMemeTemplate(memeTemplateEl) {
+        const currentMemeTemplate = this.el.querySelector('.meme-template');
+        if(currentMemeTemplate) {
+            this.el.removeChild(currentMemeTemplate);
+        }
+        this.el.insertAdjacentElement('afterbegin', memeTemplateEl);
+    }
+
     appendItem(itemObj) {
         return this.el.appendChild(itemObj.el);
     }

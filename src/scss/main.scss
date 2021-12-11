@@ -58,6 +58,16 @@ body {
   gap: 30px;
 }
 
+.meme-templates-modal__grid div {
+  cursor: pointer;
+}
+
+.meme-templates-modal__grid.loading div {
+  cursor:none;
+  pointer-events: none;
+  opacity: .8;
+}
+
 .meme-templates-modal__grid img {
   max-width: 100%;
 }
