@@ -1,3 +1,4 @@
+import * as bootstrap from 'bootstrap'
 import'core-js/stable'
 import 'regenerator-runtime/runtime'
 import "@fontsource/inter";
@@ -7,5 +8,3 @@ import "./js/toolbar";
 import init from './js/init';
 
 init();
-
-

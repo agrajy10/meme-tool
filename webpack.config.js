@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
-    clean: true, //emty dist dir after each build
+    clean: true, //emty dist dir after each build,
   },
   devServer: {
     static: path.resolve(__dirname, "dist"),

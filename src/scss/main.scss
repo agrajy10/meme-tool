@@ -1,8 +1,68 @@
 @import "custom";
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+html,body {
+  height: 100%;
+}
 
 body {
-  background-color: rgb(0 0 0 / 3%);
+  background-color: $soft;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+.btn svg {
+  position: relative;
+  top: -2px;
+  width: 15px;
+  height: 15px;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 0 20px;
+  height: 100%;
+}
+
+.toolbar {
+  background-color: #FFF;
+}
+
+.toolbar .nav {
+  padding: 10px;
+}
+
+.toolbar .nav-link {
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1;
+  padding: 12px 8px;
+}
+
+.toolbar .nav-link svg {
+  display: block;
+  margin:0 auto 8px auto;
+  width: 30px;
+}
+
+.toolbar .tab-pane {
+  padding: 12px;
+}
+
+.main-area {
+  display: flex;
+}
+
+.drawing-area {
+  margin:auto;
+  width: 500px;
+  height: 500px;
+  background-color: #FFF;
 }
 
 .main {
@@ -14,60 +74,102 @@ body {
 
 .drawing-area-container {
   overflow: auto;
+  padding-top:70px;
+  text-align: center;
 }
 
-.drawing-area {
-  margin:70px auto 0 auto;
+.download-modal .modal-body {
+  padding:70px 40px 40px 40px;
 }
 
-.color-picker .btn::after {
-  display: none;
+.download-modal__close-btn {
+  position:absolute;
+  top:20px;
+  right:20px;
 }
 
-.color-picker .btn span {
-  display: inline-block;
+.range-input {
   position: relative;
-  top: 3px;
-  width: 20px;
-  height: 20px;
-  background-color: chocolate;
-  margin:0 0 0 9px;
+  padding-right: 60px;
 }
 
-.picker_done {
-  display: none;
+.range-input .range-input__value {
+  width: 50px;
+  height: 30px;
+  border: 1px solid $light;
+  font-size: 14px;
+  line-height: 28px;
+  text-align: center;
+  border-radius: 4px;
+  position: absolute;
+  right: 0;
+  bottom: 4px;
 }
 
-.item-selected {
-  outline: 2px dashed cornflowerblue;
+.text-alignment .btn svg {
+  width: 22px;
+  height: 22px;
+}
+.text-transform .btn svg,
+.text-style .btn svg {
+  width:27px;
+  height: 27px;
+  position: relative;
+  top: 4px;
 }
 
-.drawing-area .text-item p {
-  margin-bottom: 0;
-  white-space: pre;
+.text-transform .btn svg {
+  top:3px;
 }
 
-.meme-templates-modal__loader {
-  display:flex;
-  justify-content:center;
-}
+// .color-picker .btn::after {
+//   display: none;
+// }
 
-.meme-templates-modal__grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 30px;
-}
+// .color-picker .btn span {
+//   display: inline-block;
+//   position: relative;
+//   top: 3px;
+//   width: 20px;
+//   height: 20px;
+//   background-color: chocolate;
+//   margin:0 0 0 9px;
+// }
 
-.meme-templates-modal__grid div {
-  cursor: pointer;
-}
+// .picker_done {
+//   display: none;
+// }
 
-.meme-templates-modal__grid.loading div {
-  cursor:none;
-  pointer-events: none;
-  opacity: .8;
-}
+// .item-selected {
+//   outline: 2px dashed cornflowerblue;
+// }
 
-.meme-templates-modal__grid img {
-  max-width: 100%;
-}
+// .drawing-area .text-item p {
+//   margin-bottom: 0;
+//   white-space: pre;
+// }
+
+// .meme-templates-modal__loader {
+//   display:flex;
+//   justify-content:center;
+// }
+
+// .meme-templates-modal__grid {
+//   display: grid;
+//   grid-template-columns: repeat(6, 1fr);
+//   gap: 30px;
+// }
+
+// .meme-templates-modal__grid div {
+//   cursor: pointer;
+// }
+
+// .meme-templates-modal__grid.loading div {
+//   cursor:none;
+//   pointer-events: none;
+//   opacity: .8;
+// }
+
+// .meme-templates-modal__grid img {
+//   max-width: 100%;
+// }
