@@ -30,10 +30,12 @@ export function selectTextBlock(itemObj) {
 }
 
 function unselectTextBlock(e) {
-    elements.textSettingsPanel.classList.add('d-none');
+    if(appState.currentSelectedItem) {
+        elements.textSettingsPanel.classList.add('d-none');
         appState.currentSelectedItem.saveContent();
         appState.currentSelectedItem.el.classList.remove("selected");
         appState.currentSelectedItem = null;
+    }
 }
 
 document.addEventListener('click', function(e) {

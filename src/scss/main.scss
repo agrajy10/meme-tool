@@ -1,6 +1,5 @@
 @import "custom";
 @import "~bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
 
 html,body {
   height: 100%;
@@ -10,15 +9,12 @@ body {
   background-color: $soft;
 }
 
-.form-label {
-  font-weight: 500;
+.btn {
+  padding: 6px 12px 9px 12px;
 }
 
-.btn svg {
-  position: relative;
-  top: -2px;
-  width: 15px;
-  height: 15px;
+.form-label {
+  font-weight: 500;
 }
 
 .main-container {
@@ -32,12 +28,12 @@ body {
   background-color: #FFF;
 }
 
-
 .toolbar .nav {
   padding: 10px;
 }
 
 .toolbar .nav-link {
+  width: 96px;
   font-weight: 600;
   font-size: 14px;
   text-align: center;
@@ -86,7 +82,7 @@ body {
   padding:70px 40px 40px 40px;
 }
 
-.download-modal__close-btn {
+.download-modal .btn-close {
   position:absolute;
   top:20px;
   right:20px;
@@ -114,6 +110,7 @@ body {
   width: 22px;
   height: 22px;
 }
+
 .text-transform .btn svg,
 .text-style .btn svg {
   width:27px;
@@ -181,3 +178,16 @@ body {
   display: none;
 }
 
+.clear-canvas-modal svg {
+  display: block;
+  margin: 40px auto;
+  fill: $primary;
+  width: 90px;
+  height: 90px;
+}
+
+.clear-canvas-modal .btn-close {
+  position:absolute;
+  top:20px;
+  right:20px;
+}

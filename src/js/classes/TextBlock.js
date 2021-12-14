@@ -43,7 +43,6 @@ class TextBlock {
     this.el.children[0].contentEditable = false;
     this.el.children[0].blur();
     this.content = this.el.children[0].textContent;
-    console.log(this);
   }
 
   _generateMarkup() {

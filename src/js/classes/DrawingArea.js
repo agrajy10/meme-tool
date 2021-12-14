@@ -31,11 +31,15 @@ class DrawingArea {
     }
 
     appendMemeTemplate(memeTemplateEl) {
+        this.removeMemeTemplate();
+        this.el.insertAdjacentElement('afterbegin', memeTemplateEl);
+    }
+
+    removeMemeTemplate() {
         const currentMemeTemplate = this.el.querySelector('.meme-template');
         if(currentMemeTemplate) {
             this.el.removeChild(currentMemeTemplate);
         }
-        this.el.insertAdjacentElement('afterbegin', memeTemplateEl);
     }
 
     appendItem(itemObj) {
