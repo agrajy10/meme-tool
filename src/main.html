@@ -8,10 +8,6 @@
     <title>Meme tool</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Oswald:wght@700&display=swap"
-        rel="stylesheet">
 </head>
 
 <body>
@@ -88,7 +84,19 @@
 
                     <div class="tab-pane fade show active" id="toolbar-pills-templates" role="tabpanel"
                         aria-labelledby="toolbar-pills-templates-tab">
-                        ...</div>
+
+                        <div class="templates-grid">
+
+                            <div class="loader">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <div class="alert alert-danger d-none"></div>
+
+                        </div>
+
+                    </div>
                     <!--tab-pane-->
 
                     <div class="tab-pane fade" id="toolbar-pills-text" role="tabpanel"
@@ -105,172 +113,205 @@
 
                         <hr class="my-4">
 
-                        <div class="text-color">
-
-                        </div>
-                        <!--text-color-->
-
-                        <div class="text-fs mb-2 range-input">
-                            <label for="textFs" class="form-label text-fs__lbl mb-1">Font size</label>
-                            <input type="range" min="10" max="60" step="1" class="form-range text-fs__input"
-                                id="textFs">
-                            <div class="range-input__value">0</div>
-                        </div>
-                        <!--text-fs-->
-
-                        <div class="text-ls mb-2 range-input">
-                            <label for="textLs" class="form-label text-ls__lbl mb-1">Letter spacing</label>
-                            <input type="range" min="10" max="60" step="1" class="form-range text-ls__input"
-                                id="textLs">
-                            <div class="range-input__value">0</div>
-                        </div>
-                        <!--text-ls-->
-
-                        <div class="text-lh mb-4 range-input">
-                            <label for="textLh" class="form-label text-lh__lbl mb-1">Line height</label>
-                            <input type="range" min="10" max="60" step="1" class="form-range text-lh__input"
-                                id="textLh">
-                            <div class="range-input__value">0</div>
-                        </div>
-                        <!--text-lh-->
-
-
-                        <div class="mb-3 text-alignment mb-4" role="group">
-                            <div role="group" class="btn-group" aria-label="Text alignment">
-                                <input type="radio" value="left" class="btn-check text-alignment__option"
-                                    name="textAlignment" id="textAlignLeft" autocomplete="off" checked>
-                                <label class="btn btn-outline-primary" for="textAlignLeft">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4 6h16M4 12h16M4 18h7" />
-                                    </svg>
-                                    <span class="visually-hidden">Left</span>
-                                </label>
-
-                                <input type="radio" value="center" class="btn-check text-alignment__option"
-                                    name="textAlignment" id="textAlignCenter" autocomplete="off">
-                                <label class="btn btn-outline-primary" for="textAlignCenter">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4 6h16M4 12h16M4 18h16" />
-                                    </svg>
-                                    <span class="visually-hidden">Center</span>
-                                </label>
-
-                                <input type="radio" value="right" class="btn-check text-alignment__option"
-                                    name="textAlignment" id="textAlignRight" autocomplete="off">
-                                <label class="btn btn-outline-primary" for="textAlignRight">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4 6h16M4 12h16m-7 6h7" />
-                                    </svg>
-                                    <span class="visually-hidden">Right</span>
-                                </label>
+                        <div class="text-settings-panel d-none">
+                            <div class="text-color-picker mb-4">
 
                             </div>
-                        </div>
-                        <!--text-alignment-->
-
-                        <div class="mb-3 text-transform">
-                            <div class="btn-group" role="group" aria-label="Text transform options">
-
-                                <input type="radio" value="uppercase" class="btn-check text-transform__option"
-                                    name="textTransform" id="transformUpperCase" autocomplete="off">
-
-                                <label class="btn btn-outline-primary btn-sm mb-1" for="transformUpperCase">
-                                    <svg version="1.1" fill="currentColor" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <g>
-                                            <path d="m93.332 480.79c-1.2617 0-2.5195-0.23438-3.7812-0.62891-6.0898-2.0781-9.332-8.7266-7.2578-14.816l132.88-387.45c1.6094-4.6914 6.043-7.8867 11.012-7.8867 4.9922 0 9.4258 3.2422 11.035 7.9336l132.04 387.43c2.1016 6.1367-1.168 12.715-7.2812 14.816-6.1133 2.0547-12.715-1.1914-14.793-7.3047l-121.03-355.16-121.8 355.2c-1.6797 4.875-6.1836 7.8633-11.035 7.8633z"/>
-                                            <path d="m146.81 326.67h163.33v23.332h-163.33z"/>
-                                            <path d="m500.76 490h-108.96c-6.418 0-11.668-5.25-11.668-11.668v-396.67c0-6.418 5.25-11.668 11.668-11.668h96.949c58.402 0 105.86 47.133 105.86 105 0 37.965-20.301 71.238-50.633 89.691 43.516 17.035 74.363 59.336 74.363 108.64 0 64.328-52.734 116.67-117.58 116.67zm-97.301-23.332h97.301c51.988 0 94.242-41.859 94.242-93.332 0-51.473-42.023-93.332-93.684-93.332h-56.652c-6.4414 0-11.668-5.25-11.668-11.668 0-6.418 5.2266-11.668 11.668-11.668h44.543c45.242 0 82.062-36.633 82.062-81.668s-37.031-81.668-82.531-81.668h-85.285v373.33z"/>
-                                        </g>
-                                       </svg>
-                                    <span class="visually-hidden">Uppercase</span>
-                                </label>
-
-                                <input type="radio" value="lowercase" class="btn-check text-transform__option"
-                                    name="textTransform" id="transformLowerCase" autocomplete="off">
-                                <label class="btn btn-outline-primary btn-sm mb-1" for="transformLowerCase">
-
-                                    <svg version="1.1" fill="currentColor" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <g>
-                                            <path d="m311.24 518.79c-6.4414 0-11.668-5.25-11.668-11.668l0.070312-251.25c0.25781-39.551 0.48828-73.734-15.285-89.648-8.2148-8.2383-21.375-12.227-40.273-12.227-24.453 0-34.906 9.332-52.195 24.875l-6.8828 6.1367c-4.8516 4.1992-12.227 3.7578-16.473-1.0742-4.2461-4.8516-3.7812-12.227 1.0742-16.473l6.6953-5.9492c18.457-16.566 34.371-30.848 67.785-30.848 25.41 0 44.008 6.3242 56.816 19.156 22.633 22.82 22.352 61.461 22.051 106.26l-0.046875 251.07c0 6.418-5.25 11.645-11.668 11.645z"/>
-                                            <path d="m220.31 531.21c-35.91 0-110.62 0-110.62-91.094 0-73.078 78.492-179.25 201.53-179.25 6.418 0 11.668 5.2266 11.668 11.668v246.29c0 6.418-5.25 11.668-11.668 11.668h-46.387c-6.8594 0-14 0.1875-21.258 0.375-7.6758 0.16406-15.492 0.35156-23.262 0.35156zm79.266-246.66c-102.04 6.3008-166.51 94.289-166.51 155.54 0 56.699 31.988 67.762 87.266 67.762 7.582 0 15.191-0.1875 22.703-0.42187 7.4219-0.1875 14.77-0.42188 21.816-0.42188h34.719v-222.46z"/>
-                                            <path d="m381.24 518.79c-6.4414 0-11.668-5.25-11.668-11.668v-466.67c0-6.418 5.2266-11.668 11.668-11.668 6.418 0 11.668 5.25 11.668 11.668v466.67c0 6.4414-5.25 11.668-11.668 11.668z"/>
-                                            <path d="m486.24 531.21c-7.375 0-14.887-0.1875-22.285-0.42188-7.1875-0.1875-14.258-0.42188-21.211-0.42188h-61.508c-6.4414 0-11.668-5.2266-11.668-11.668v-246.26c0-6.418 5.2266-11.668 11.668-11.668 125.67 0 209.07 107.87 209.07 179.25 0 36.867-10.941 61.785-33.484 76.301-20.371 13.113-47.109 14.887-70.582 14.887zm-93.332-24.082h49.863c7.1406 0 14.441 0.1875 21.793 0.375 7.2578 0.1875 14.512 0.42188 21.699 0.42188 20.066 0 42.676-1.375 57.961-11.176 15.309-9.8477 22.75-28.352 22.75-56.652 0-60.48-72.426-149.17-174.07-155.54v222.58z"/>
-                                        </g>
-                                       </svg>
-
-                                    <span class="visually-hidden">Lowercase</span></label>
-
-                                <input type="radio" value="capitalize" class="btn-check text-transform__option"
-                                    name="textTransform" id="transformCapitalize" autocomplete="off">
-                                <label class="btn btn-outline-primary btn-sm mb-1" for="transformCapitalize">
-
-                                    <svg version="1.1" fill="currentColor" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <g>
-                                         <path d="m396.57 504.14c-4.875 0-9.4258-3.1016-11.082-7.9805l-130.85-392.61-130.88 392.63c-2.0312 6.1133-8.5625 9.4727-14.746 7.375-6.1133-2.0547-9.4023-8.6562-7.375-14.77l141.94-425.83c3.1719-9.5195 18.969-9.5195 22.121 0l141.94 425.83c2.0312 6.1133-1.2617 12.715-7.375 14.77-1.2148 0.42188-2.4727 0.58203-3.6875 0.58203z"/>
-                                         <path d="m342.32 384.56h-186.67c-6.4414 0-11.668-5.25-11.668-11.668s5.2266-11.668 11.668-11.668h186.67c6.418 0 11.668 5.25 11.668 11.668s-5.25 11.668-11.668 11.668z"/>
-                                         <path d="m587.32 489.56c-6.4414 0-11.668-5.25-11.668-11.668v-155.75c0-52.852-2.9414-71.352-36.027-71.352-16.871 0-27.09 7.8867-39.738 18.969-4.8516 4.293-12.227 3.7578-16.473-1.0742-4.2695-4.8281-3.7812-12.18 1.0508-16.473 14.863-13.09 30.262-24.805 55.137-24.805 59.359 0 59.359 50.262 59.359 94.688v155.8c0.023437 6.4414-5.2266 11.668-11.645 11.668z"/>
-                                         <path d="m533.52 501.22c-35.352 0-88.762 0-88.762-69.512 0-50.352 44.238-121.24 142.52-121.24 6.418 0 11.668 5.2266 11.668 11.668v167.42c0 6.418-5.25 11.668-11.668 11.668h-53.762zm42.141-167.02c-74.059 5.1562-107.52 58.824-107.52 97.535 0 41.602 20.953 46.176 65.426 46.176h42.117v-143.71z"/>
-                                        </g>
-                                       </svg>
-                                    <span class="visually-hidden">Capital
-                                        Case</span></label>
+                            <!--text-color-->
+    
+                            <div class="text-fs mb-2 range-input">
+                                <label for="textFs" class="form-label text-fs__lbl mb-1">Font size</label>
+                                <input type="range" min="10" max="60" step="1" class="form-range text-fs__input"
+                                    id="textFs">
+                                <div class="range-input__value">0</div>
                             </div>
-                        </div>
-                        <!--text-transform-->
-
-                        <div class="btn-group text-style mb-4" role="group" aria-label="Text style">
-                            <input type="checkbox" class="btn-check text-style__bold" id="textBold" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="textBold">
-                                <svg fill="currentColor" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <g>
-                                        <path
-                                            d="m404 269.18c20.555-19.18 33.496-46.418 33.496-76.676 0-57.898-47.102-105-105-105h-87.5c-9.6602 0-17.5 7.8398-17.5 17.5s7.8398 17.5 17.5 17.5v315c-9.6602 0-17.5 7.8398-17.5 17.5s7.8398 17.5 17.5 17.5h122.5c57.898 0 105-47.102 105-105 0-45.047-28.57-83.449-68.496-98.324zm-71.504-146.68c38.598 0 70 31.402 70 70s-31.402 70-70 70h-52.5v-140zm35 315h-87.5v-140h87.5c38.598 0 70 31.402 70 70s-31.402 70-70 70z" />
-                                    </g>
+                            <!--text-fs-->
+    
+                            <div class="text-ls mb-2 range-input">
+                                <label for="textLs" class="form-label text-ls__lbl mb-1">Letter spacing</label>
+                                <input type="range" min="1" max="20" step="1" class="form-range text-ls__input" id="textLs">
+                                <div class="range-input__value">0</div>
+                            </div>
+                            <!--text-ls-->
+    
+                            <div class="text-lh mb-4 range-input">
+                                <label for="textLh" class="form-label text-lh__lbl mb-1">Line height</label>
+                                <input type="range" min="1" max="10" step="1" class="form-range text-lh__input" id="textLh">
+                                <div class="range-input__value">0</div>
+                            </div>
+                            <!--text-lh-->
+    
+    
+                            <div class="mb-3 text-alignment mb-4" role="group">
+                                <div role="group" class="btn-group" aria-label="Text alignment">
+                                    <input type="radio" value="left" class="btn-check text-alignment__option"
+                                        name="textAlignment" id="textAlignLeft" autocomplete="off" checked>
+                                    <label class="btn btn-outline-primary" for="textAlignLeft">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M4 6h16M4 12h16M4 18h7" />
+                                        </svg>
+                                        <span class="visually-hidden">Left</span>
+                                    </label>
+    
+                                    <input type="radio" value="center" class="btn-check text-alignment__option"
+                                        name="textAlignment" id="textAlignCenter" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="textAlignCenter">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M4 6h16M4 12h16M4 18h16" />
+                                        </svg>
+                                        <span class="visually-hidden">Center</span>
+                                    </label>
+    
+                                    <input type="radio" value="right" class="btn-check text-alignment__option"
+                                        name="textAlignment" id="textAlignRight" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="textAlignRight">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M4 6h16M4 12h16m-7 6h7" />
+                                        </svg>
+                                        <span class="visually-hidden">Right</span>
+                                    </label>
+    
+                                </div>
+                            </div>
+                            <!--text-alignment-->
+    
+                            <div class="mb-3 text-transform">
+                                <div class="btn-group" role="group" aria-label="Text transform options">
+    
+                                    <input type="radio" value="none" class="btn-check text-transform__option"
+                                        name="textTransform" id="transformNone" autocomplete="off">
+    
+                                    <label class="btn btn-outline-primary btn-sm mb-1" for="transformNone">
+                                        <svg fill="currentColor" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <g>
+                                                <path
+                                                    d="m416.1 466.74c-4.875 0-9.4023-3.1016-11.059-7.9805l-125.04-375.13-125.04 375.13c-2.0312 6.1133-8.5859 9.4258-14.746 7.375-6.1133-2.0547-9.4023-8.6562-7.375-14.77l136.1-408.33c3.1719-9.5195 18.969-9.5195 22.121 0l136.1 408.33c2.0547 6.1133-1.2617 12.715-7.3516 14.77-1.2383 0.42188-2.4727 0.60547-3.7109 0.60547z" />
+                                                <path
+                                                    d="m361.67 337.45h-163.33c-6.4414 0-11.668-5.25-11.668-11.668 0-6.418 5.2266-11.668 11.668-11.668h163.33c6.418 0 11.668 5.25 11.668 11.668 0 6.418-5.25 11.668-11.668 11.668z" />
+                                            </g>
+                                        </svg>
+                                        <span class="visually-hidden">None</span>
+                                    </label>
+    
+                                    <input type="radio" value="uppercase" class="btn-check text-transform__option"
+                                        name="textTransform" id="transformUpperCase" autocomplete="off">
+    
+                                    <label class="btn btn-outline-primary btn-sm mb-1" for="transformUpperCase">
+                                        <svg version="1.1" fill="currentColor" viewBox="0 0 700 700"
+                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <g>
+                                                <path
+                                                    d="m93.332 480.79c-1.2617 0-2.5195-0.23438-3.7812-0.62891-6.0898-2.0781-9.332-8.7266-7.2578-14.816l132.88-387.45c1.6094-4.6914 6.043-7.8867 11.012-7.8867 4.9922 0 9.4258 3.2422 11.035 7.9336l132.04 387.43c2.1016 6.1367-1.168 12.715-7.2812 14.816-6.1133 2.0547-12.715-1.1914-14.793-7.3047l-121.03-355.16-121.8 355.2c-1.6797 4.875-6.1836 7.8633-11.035 7.8633z" />
+                                                <path d="m146.81 326.67h163.33v23.332h-163.33z" />
+                                                <path
+                                                    d="m500.76 490h-108.96c-6.418 0-11.668-5.25-11.668-11.668v-396.67c0-6.418 5.25-11.668 11.668-11.668h96.949c58.402 0 105.86 47.133 105.86 105 0 37.965-20.301 71.238-50.633 89.691 43.516 17.035 74.363 59.336 74.363 108.64 0 64.328-52.734 116.67-117.58 116.67zm-97.301-23.332h97.301c51.988 0 94.242-41.859 94.242-93.332 0-51.473-42.023-93.332-93.684-93.332h-56.652c-6.4414 0-11.668-5.25-11.668-11.668 0-6.418 5.2266-11.668 11.668-11.668h44.543c45.242 0 82.062-36.633 82.062-81.668s-37.031-81.668-82.531-81.668h-85.285v373.33z" />
+                                            </g>
+                                        </svg>
+                                        <span class="visually-hidden">Uppercase</span>
+                                    </label>
+    
+                                    <input type="radio" value="lowercase" class="btn-check text-transform__option"
+                                        name="textTransform" id="transformLowerCase" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mb-1" for="transformLowerCase">
+    
+                                        <svg version="1.1" fill="currentColor" viewBox="0 0 700 700"
+                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <g>
+                                                <path
+                                                    d="m311.24 518.79c-6.4414 0-11.668-5.25-11.668-11.668l0.070312-251.25c0.25781-39.551 0.48828-73.734-15.285-89.648-8.2148-8.2383-21.375-12.227-40.273-12.227-24.453 0-34.906 9.332-52.195 24.875l-6.8828 6.1367c-4.8516 4.1992-12.227 3.7578-16.473-1.0742-4.2461-4.8516-3.7812-12.227 1.0742-16.473l6.6953-5.9492c18.457-16.566 34.371-30.848 67.785-30.848 25.41 0 44.008 6.3242 56.816 19.156 22.633 22.82 22.352 61.461 22.051 106.26l-0.046875 251.07c0 6.418-5.25 11.645-11.668 11.645z" />
+                                                <path
+                                                    d="m220.31 531.21c-35.91 0-110.62 0-110.62-91.094 0-73.078 78.492-179.25 201.53-179.25 6.418 0 11.668 5.2266 11.668 11.668v246.29c0 6.418-5.25 11.668-11.668 11.668h-46.387c-6.8594 0-14 0.1875-21.258 0.375-7.6758 0.16406-15.492 0.35156-23.262 0.35156zm79.266-246.66c-102.04 6.3008-166.51 94.289-166.51 155.54 0 56.699 31.988 67.762 87.266 67.762 7.582 0 15.191-0.1875 22.703-0.42187 7.4219-0.1875 14.77-0.42188 21.816-0.42188h34.719v-222.46z" />
+                                                <path
+                                                    d="m381.24 518.79c-6.4414 0-11.668-5.25-11.668-11.668v-466.67c0-6.418 5.2266-11.668 11.668-11.668 6.418 0 11.668 5.25 11.668 11.668v466.67c0 6.4414-5.25 11.668-11.668 11.668z" />
+                                                <path
+                                                    d="m486.24 531.21c-7.375 0-14.887-0.1875-22.285-0.42188-7.1875-0.1875-14.258-0.42188-21.211-0.42188h-61.508c-6.4414 0-11.668-5.2266-11.668-11.668v-246.26c0-6.418 5.2266-11.668 11.668-11.668 125.67 0 209.07 107.87 209.07 179.25 0 36.867-10.941 61.785-33.484 76.301-20.371 13.113-47.109 14.887-70.582 14.887zm-93.332-24.082h49.863c7.1406 0 14.441 0.1875 21.793 0.375 7.2578 0.1875 14.512 0.42188 21.699 0.42188 20.066 0 42.676-1.375 57.961-11.176 15.309-9.8477 22.75-28.352 22.75-56.652 0-60.48-72.426-149.17-174.07-155.54v222.58z" />
+                                            </g>
+                                        </svg>
+    
+                                        <span class="visually-hidden">Lowercase</span></label>
+    
+                                    <input type="radio" value="capitalize" class="btn-check text-transform__option"
+                                        name="textTransform" id="transformCapitalize" autocomplete="off">
+                                    <label class="btn btn-outline-primary btn-sm mb-1" for="transformCapitalize">
+    
+                                        <svg version="1.1" fill="currentColor" viewBox="0 0 700 700"
+                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <g>
+                                                <path
+                                                    d="m396.57 504.14c-4.875 0-9.4258-3.1016-11.082-7.9805l-130.85-392.61-130.88 392.63c-2.0312 6.1133-8.5625 9.4727-14.746 7.375-6.1133-2.0547-9.4023-8.6562-7.375-14.77l141.94-425.83c3.1719-9.5195 18.969-9.5195 22.121 0l141.94 425.83c2.0312 6.1133-1.2617 12.715-7.375 14.77-1.2148 0.42188-2.4727 0.58203-3.6875 0.58203z" />
+                                                <path
+                                                    d="m342.32 384.56h-186.67c-6.4414 0-11.668-5.25-11.668-11.668s5.2266-11.668 11.668-11.668h186.67c6.418 0 11.668 5.25 11.668 11.668s-5.25 11.668-11.668 11.668z" />
+                                                <path
+                                                    d="m587.32 489.56c-6.4414 0-11.668-5.25-11.668-11.668v-155.75c0-52.852-2.9414-71.352-36.027-71.352-16.871 0-27.09 7.8867-39.738 18.969-4.8516 4.293-12.227 3.7578-16.473-1.0742-4.2695-4.8281-3.7812-12.18 1.0508-16.473 14.863-13.09 30.262-24.805 55.137-24.805 59.359 0 59.359 50.262 59.359 94.688v155.8c0.023437 6.4414-5.2266 11.668-11.645 11.668z" />
+                                                <path
+                                                    d="m533.52 501.22c-35.352 0-88.762 0-88.762-69.512 0-50.352 44.238-121.24 142.52-121.24 6.418 0 11.668 5.2266 11.668 11.668v167.42c0 6.418-5.25 11.668-11.668 11.668h-53.762zm42.141-167.02c-74.059 5.1562-107.52 58.824-107.52 97.535 0 41.602 20.953 46.176 65.426 46.176h42.117v-143.71z" />
+                                            </g>
+                                        </svg>
+                                        <span class="visually-hidden">Capital
+                                            Case</span></label>
+                                </div>
+                            </div>
+                            <!--text-transform-->
+    
+                            <div class="btn-group text-style mb-4" role="group" aria-label="Text style">
+                                <input type="checkbox" value="bold" class="btn-check text-style__bold" id="textBold"
+                                    autocomplete="off">
+                                <label class="btn btn-outline-primary" for="textBold">
+                                    <svg fill="currentColor" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g>
+                                            <path
+                                                d="m404 269.18c20.555-19.18 33.496-46.418 33.496-76.676 0-57.898-47.102-105-105-105h-87.5c-9.6602 0-17.5 7.8398-17.5 17.5s7.8398 17.5 17.5 17.5v315c-9.6602 0-17.5 7.8398-17.5 17.5s7.8398 17.5 17.5 17.5h122.5c57.898 0 105-47.102 105-105 0-45.047-28.57-83.449-68.496-98.324zm-71.504-146.68c38.598 0 70 31.402 70 70s-31.402 70-70 70h-52.5v-140zm35 315h-87.5v-140h87.5c38.598 0 70 31.402 70 70s-31.402 70-70 70z" />
+                                        </g>
+                                    </svg>
+    
+                                    <span class="visually-hidden">Bold</span></label>
+    
+                                <input value="italic" type="checkbox" class="btn-check text-style__italic" id="textItalic"
+                                    autocomplete="off">
+                                <label class="btn btn-outline-primary" for="textItalic">
+                                    <svg fill="currentColor" version="1.1" viewBox="0 0 700 700"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g>
+                                            <path
+                                                d="m420 87.5h-70c-9.6602 0-17.5 7.8398-17.5 17.5s7.8398 17.5 17.5 17.5h13.66l-63 315h-20.66c-9.6602 0-17.5 7.8398-17.5 17.5s7.8398 17.5 17.5 17.5h70c9.6602 0 17.5-7.8398 17.5-17.5s-7.8398-17.5-17.5-17.5h-13.66l63-315h20.66c9.6602 0 17.5-7.8398 17.5-17.5s-7.8398-17.5-17.5-17.5z" />
+                                        </g>
+                                    </svg>
+                                    <span class="visually-hidden">Italic</span></label>
+    
+                                <input value="underline" type="checkbox" class="btn-check text-style__underline"
+                                    id="textUnderline" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="textUnderline">
+                                    <svg fill="currentColor" version="1.1" viewBox="0 0 700 700"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g>
+                                            <path
+                                                d="m507.5 437.5h-315c-9.6602 0-17.5 7.8398-17.5 17.5s7.8398 17.5 17.5 17.5h315c9.6602 0 17.5-7.8398 17.5-17.5s-7.8398-17.5-17.5-17.5z" />
+                                            <path
+                                                d="m525 87.5h-70c-9.6602 0-17.5 7.8398-17.5 17.5s7.8398 17.5 17.5 17.5h17.5v140c0 67.551-54.949 122.5-122.5 122.5s-122.5-54.949-122.5-122.5v-140h17.5c9.6602 0 17.5-7.8398 17.5-17.5s-7.8398-17.5-17.5-17.5h-70c-9.6602 0-17.5 7.8398-17.5 17.5s7.8398 17.5 17.5 17.5h17.5v140c0 86.844 70.656 157.5 157.5 157.5s157.5-70.656 157.5-157.5v-140h17.5c9.6602 0 17.5-7.8398 17.5-17.5s-7.8398-17.5-17.5-17.5z" />
+                                        </g>
+                                    </svg>
+                                    <span class="visually-hidden">Underline</span>
+                                </label>
+                            </div>
+                            <!--text-style-->
+    
+                            <button type="button" class="btn w-100 btn-danger delete-text-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                 </svg>
-
-                                <span class="visually-hidden">Bold</span></label>
-
-                            <input type="checkbox" class="btn-check text-style__italic" id="textItalic"
-                                autocomplete="off">
-                            <label class="btn btn-outline-primary" for="textItalic">
-                                <svg fill="currentColor" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <g>
-                                        <path
-                                            d="m420 87.5h-70c-9.6602 0-17.5 7.8398-17.5 17.5s7.8398 17.5 17.5 17.5h13.66l-63 315h-20.66c-9.6602 0-17.5 7.8398-17.5 17.5s7.8398 17.5 17.5 17.5h70c9.6602 0 17.5-7.8398 17.5-17.5s-7.8398-17.5-17.5-17.5h-13.66l63-315h20.66c9.6602 0 17.5-7.8398 17.5-17.5s-7.8398-17.5-17.5-17.5z" />
-                                    </g>
-                                </svg>
-                                <span class="visually-hidden">Italic</span></label>
-
-                            <input type="checkbox" class="btn-check text-style__underline" id="textUnderline"
-                                autocomplete="off">
-                            <label class="btn btn-outline-primary" for="textUnderline">
-                                <svg fill="currentColor" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <g>
-                                     <path d="m507.5 437.5h-315c-9.6602 0-17.5 7.8398-17.5 17.5s7.8398 17.5 17.5 17.5h315c9.6602 0 17.5-7.8398 17.5-17.5s-7.8398-17.5-17.5-17.5z"/>
-                                     <path d="m525 87.5h-70c-9.6602 0-17.5 7.8398-17.5 17.5s7.8398 17.5 17.5 17.5h17.5v140c0 67.551-54.949 122.5-122.5 122.5s-122.5-54.949-122.5-122.5v-140h17.5c9.6602 0 17.5-7.8398 17.5-17.5s-7.8398-17.5-17.5-17.5h-70c-9.6602 0-17.5 7.8398-17.5 17.5s7.8398 17.5 17.5 17.5h17.5v140c0 86.844 70.656 157.5 157.5 157.5s157.5-70.656 157.5-157.5v-140h17.5c9.6602 0 17.5-7.8398 17.5-17.5s-7.8398-17.5-17.5-17.5z"/>
-                                    </g>
-                                   </svg>
-                                <span class="visually-hidden">Underline</span>
-                            </label>
+                                Delete text
+                            </button>
                         </div>
-                        <!--text-style-->
-
-                        <button type="button" class="btn w-100 btn-danger delete-text-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                            </svg>
-                            Delete text
-                        </button>
 
                     </div>
                     <!--tab-pane-->
@@ -290,9 +331,6 @@
 
         <div class="main-area">
 
-            <div class="drawing-area"></div>
-            <!--drawing-area-->
-
         </div>
         <!--main-area-->
 
@@ -307,10 +345,11 @@
                     <h5 class="modal-title sr-only" id="downloadModalLabel">Download meme</h5>
                     <button type="button" class="btn-close download-modal__close-btn" data-bs-dismiss="modal"
                         aria-label="Close"></button>
+                    <div class="alert alert-danger d-none" role="alert"></div>
                     <label for="filename" class="form-label">Enter file name:</label>
-                    <input type="text" id="filename" class="download-modal__filename form-control form-control-lg mb-4"
+                    <input type="text" required id="filename" class="download-modal__filename form-control form-control-lg mb-4"
                         value="meme">
-                    <button type="button" class="btn btn-primary btn-lg w-100">Download</button>
+                    <button type="button" class="btn btn-primary btn-lg w-100 download-modal__download-btn">Download</button>
                 </div>
             </div>
         </div>

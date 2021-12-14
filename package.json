@@ -28,6 +28,8 @@
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.1",
+    "@fontsource/nunito": "^4.5.1",
+    "@fontsource/oswald": "^4.5.1",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@popperjs/core": "^2.11.0",
     "bootstrap": "^5.1.3",

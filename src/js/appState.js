@@ -1,5 +1,8 @@
+import drawingAreaObj from "./classes/DrawingArea";
+
 const appState = {
-  items: [],
+  drawingArea : drawingAreaObj,
+  textBlocks: [],
   currentSelectedItem: null,
 };
 

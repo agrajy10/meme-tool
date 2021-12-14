@@ -6,16 +6,13 @@ class DrawingArea {
         },
         this.styles = {
             backgroundColor: '#FFFFFF',
-            borderWidth: 1,
-            borderStyle: 'solid',
-            borderColor: '#cbc9c9'
         }
         this._renderDrawingArea();
     }
 
     _renderDrawingArea() {
         this.el = this._generateMarkup();
-        const drawingAreaContainer = document.querySelector('.drawing-area-container');
+        const drawingAreaContainer = document.querySelector('.main-area');
         drawingAreaContainer.appendChild(this.el);
     }
 
@@ -57,22 +54,6 @@ class DrawingArea {
         return this.size.height
     }
 
-    get backgroundColor() {
-        return this.styles.backgroundColor
-    }
-
-    get borderColor() {
-        return this.styles.borderColor
-    }
-
-    get borderWidth() {
-        return this.styles.borderWidth
-    }
-
-    get borderStyle() {
-        return this.styles.borderStyle
-    }
-
     set width(value) {
         this.size.width = value;
         this.el.style.width = `${this.size.width}px`;
@@ -81,26 +62,6 @@ class DrawingArea {
     set height(value) {
         this.size.height = value;
         this.el.style.height = `${this.size.height}px`;
-    }
-
-    set backgroundColor(value) {
-        this.styles.backgroundColor = value;
-        this.el.style.backgroundColor = this.styles.backgroundColor;
-    }
-
-    set borderColor(value) {
-        this.styles.borderColor = value;
-        this.el.style.borderColor = this.styles.borderColor;
-    }
-
-    set borderWidth(value) {
-        this.styles.borderWidth = value;
-        this.el.style.borderWidth = `${this.styles.borderWidth}px`;
-    }
-
-    set borderStyle(value) {
-        this.styles.borderStyle = value;
-        this.el.style.borderStyle = this.styles.borderStyle;
     }
 
 }

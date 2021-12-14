@@ -1,15 +1,22 @@
 const elements = {
-    textInput: document.querySelector(".text-content__input"),
-    textDeleteBtn: document.querySelector(".text-content__delete-btn"),
-    textColorPickerBtn: document.querySelector(".text-color-picker__btn"),
-    textColorPickerEl: document.querySelector(".text-color-picker__el"),
-    textCurrentFsLbl: document.querySelector('.text-fs__lbl span'),
-    textFsInput: document.querySelector('.text-fs__input'),
-    textTransform: document.querySelector('.text-transform'),
-    textFontSelect: document.querySelector('.text-ff__select'),
-    textFontVariantSelect: document.querySelector('.text-ff__variant-select'),
+    textSettingsPanel : document.querySelector('.text-settings-panel'),
+    addTextBtn : document.querySelector('.add-text-btn'),
+    textColorPickerEl : document.querySelector('.text-color-picker'),
+    textFontSizeInput: document.querySelector('.text-fs__input'),
+    textCurrentFontSize: document.querySelector('.text-fs .range-input__value'),
+    textLetterSpacingInput: document.querySelector('.text-ls__input'),
+    textCurrentLetterSpacing : document.querySelector('.text-ls .range-input__value'),
+    textLineHeightInput: document.querySelector('.text-lh__input'),
+    textCurrentLineHeight : document.querySelector('.text-lh .range-input__value'),
     textAlignment: document.querySelector('.text-alignment'),
-    textPosition: document.querySelector('.text-position')
+    textAlignmentOptions : document.querySelectorAll('.text-alignment__option'),
+    textStyle : document.querySelector('.text-style'),
+    textStyleBold : document.querySelector('.text-style__bold'),
+    textStyleItalic : document.querySelector('.text-style__italic'),
+    textStyleUnderline : document.querySelector('.text-style__underline'),
+    textTransform: document.querySelector('.text-transform'),
+    textTransformOptions: document.querySelectorAll('.text-transform__option'),
+    deleteTextBtn: document.querySelector(".delete-text-btn")
 }
 
 export default elements
