@@ -1,3 +1,4 @@
+import * as bootstrap from 'bootstrap'
 import appState from "../appState";
 import elements from "./elements";
 import { textColorPicker } from "./textBlockSettings";

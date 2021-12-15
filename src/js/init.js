@@ -5,7 +5,7 @@ import './clearCanvas';
 import './download';
 
 function init() {
-    loadMemeTemplates();
+    //loadMemeTemplates();
     initializeTextBlockSettings();
     Scrollbar.init(document.querySelector('#toolbar-pills-templates'));
     Scrollbar.init(document.querySelector('#toolbar-pills-text'));

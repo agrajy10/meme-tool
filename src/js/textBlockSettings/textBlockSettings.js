@@ -61,13 +61,15 @@ function insertText() {
   appState.textBlocks.push(textBlockObj);
 }
 
-function deleteText() {
-  appState.textBlocks = appState.textBlocks.filter(
+function deleteText(e) {
+  if(appState.currentSelectedItem) {
+    appState.textBlocks = appState.textBlocks.filter(
       (item) => item !== appState.currentSelectedItem
-  );
-  drawingAreaObj.removeItem(appState.currentSelectedItem);
-  appState.currentSelectedItem = null;
-  elements.textSettingsPanel.classList.add('d-none');
+    );
+    drawingAreaObj.removeItem(appState.currentSelectedItem);
+    appState.currentSelectedItem = null;
+    elements.textSettingsPanel.classList.add('d-none');
+  }
 }
 
 
@@ -91,6 +93,11 @@ function initializeTextBlockSettings() {
   elements.textTransform.addEventListener('click', changeTextTransform);
   elements.textStyle.addEventListener('click', changeTextStyle);
   elements.deleteTextBtn.addEventListener('click', deleteText);
+  document.addEventListener('keyup', function(e) {
+    if(e.code === 'Delete') {
+      deleteText();
+    }
+  });
 }
 
 export default initializeTextBlockSettings;
