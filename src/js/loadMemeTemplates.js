@@ -45,7 +45,7 @@ async function loadMemeTemplate(templateID) {
 
 async function loadMemeTemplates() {
     try {
-        const res = await fetch(`https://api.imgur.com/3/album/${process.env.IMGUR_ALBUM_ID}/images`, requestOptions);
+        const res = await fetch(`https://api.imgur.com/3/album/${process.env.IMGUR_ALBUM_ID}/images?perPage=50`, requestOptions);
         const {
             data
         } = await res.json();
