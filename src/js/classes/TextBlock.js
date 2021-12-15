@@ -28,23 +28,6 @@ class TextBlock {
     this.el.addEventListener('dblclick', this.editContent.bind(this));
   }
 
-  clickHandler() {
-    selectTextBlock(this);
-  }
-
-  editContent() {
-    this.isEditing = true;
-    this.el.children[0].contentEditable = true;
-    this.el.children[0].focus();
-  }
-
-  saveContent() {
-    this.isEditing = false;
-    this.el.children[0].contentEditable = false;
-    this.el.children[0].blur();
-    this.content = this.el.children[0].textContent;
-  }
-
   _generateMarkup() {
     const div = document.createElement("div");
     const p  = document.createElement('p');
@@ -70,6 +53,31 @@ class TextBlock {
     return div;
   }
 
+  clickHandler() {
+    selectTextBlock(this);
+  }
+
+  editContent() {
+    this.isEditing = true;
+    this.el.children[0].contentEditable = true;
+    this.el.children[0].focus();
+  }
+
+  saveContent() {
+    this.isEditing = false;
+    this.el.children[0].contentEditable = false;
+    this.el.children[0].blur();
+    this.content = this.el.children[0].textContent;
+  }
+  
+  get width() {
+    return this.el.getBoundingClientRect().width;
+  }
+
+  get height() {
+    return this.el.getBoundingClientRect().height;
+  }
+
   get itemContent() {
     return this.content
   }
@@ -78,8 +86,8 @@ class TextBlock {
     return this.styles.color
   }
 
-  get fontSize() {
-    return this.styles.fontSize
+  get textAlign() {
+    return this.styles.textAlign;
   }
 
   get textTransform() {
@@ -88,6 +96,18 @@ class TextBlock {
 
   get textDecoration() {
     return this.styles.textDecoration
+  }
+
+  get lineHeight() {
+    return this.styles.lineHeight;
+  }
+
+  get letterSpacing() {
+    return this.styles.letterSpacing
+  }
+
+  get fontSize() {
+    return this.styles.fontSize
   }
 
   get fontFamily(){
@@ -100,26 +120,6 @@ class TextBlock {
 
   get fontStyle() {
     return this.styles.fontStyle;
-  }
-
-  get textAlign() {
-    return this.styles.textAlign;
-  }
-
-  get width() {
-    return this.el.getBoundingClientRect().width;
-  }
-
-  get height() {
-    return this.el.getBoundingClientRect().height;
-  }
-
-  get lineHeight() {
-    return this.styles.lineHeight;
-  }
-
-  get letterSpacing() {
-    return this.styles.letterSpacing
   }
   
   set topPos(value) {
@@ -141,31 +141,6 @@ class TextBlock {
     this.el.style.color = this.styles.color;
   }
 
-  set fontSize(value) {
-    this.styles.fontSize = value;
-    this.el.style.fontSize = `${this.styles.fontSize}px`;
-  }
-
-  set fontStyle(value) {
-    this.styles.fontStyle = value;
-    this.el.style.fontStyle = this.styles.fontStyle;
-  }
-
-  set textTransform(value) {
-    this.styles.textTransform = value;
-    this.el.style.textTransform = this.styles.textTransform;
-  }
-
-  set fontFamily({fontFamily, fontCategory}) {
-    this.styles.fontFamily = fontFamily;
-    this.styles.fontCategory = fontCategory;
-    this.el.style.fontFamily = `${this.styles.fontFamily}, ${this.styles.fontCategory}`;
-  }
-
-  set fontWeight(value) {
-    this.el.style.fontWeight = value;
-  }
-
   set textAlign(value) {
     this.styles.textAlign = value;
     this.el.style.textAlign = this.styles.textAlign;
@@ -184,6 +159,25 @@ class TextBlock {
   set lineHeight(value) {
     this.styles.lineHeight = value;
     this.el.style.lineHeight = this.styles.lineHeight;
+  }
+
+  set fontSize(value) {
+    this.styles.fontSize = value;
+    this.el.style.fontSize = `${this.styles.fontSize}px`;
+  }
+
+  set fontStyle(value) {
+    this.styles.fontStyle = value;
+    this.el.style.fontStyle = this.styles.fontStyle;
+  }
+
+  set textTransform(value) {
+    this.styles.textTransform = value;
+    this.el.style.textTransform = this.styles.textTransform;
+  }
+
+  set fontWeight(value) {
+    this.el.style.fontWeight = value;
   }
 
 }
