@@ -17,7 +17,6 @@ body {
   font-weight: 500;
 }
 
-
 .toolbar {
   position: fixed;
   top: 0;
@@ -129,10 +128,22 @@ body {
 }
 
 .templates-grid {
+  position: relative;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:8px;
   grid-auto-rows: 110px;
+}
+
+.templates-grid.error {
+  padding-top:40px;
+}
+
+.templates-grid .alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .templates-grid .loader {
@@ -143,8 +154,7 @@ body {
   justify-content: center;
 }
 
-.templates-grid .loader,
-.templates-grid .alert {
+.templates-grid .loader {
   grid-column: 1/3;
 }
 

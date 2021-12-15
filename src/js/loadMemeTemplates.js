@@ -70,7 +70,9 @@ async function loadMemeTemplates() {
             }
         });
     } catch (error) {
-        templatesGridAlert.textContent = error.message;
+        templatesGrid.classList.add('error');
+        templatesGridAlert.classList.remove('d-none');
+        templatesGridAlert.textContent = 'An error occurred';
     }
 }
 
